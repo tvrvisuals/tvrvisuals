@@ -1,0 +1,249 @@
+/* ===========================
+   TVR VISUALS
+   STYLE.CSS
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0d0d0d;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:white;
+}
+
+ul{
+    list-style:none;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+nav ul{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#cfcfcf;
+}
+
+/* HERO */
+
+.hero{
+    position:relative;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.hero video{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.55);
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    max-width:800px;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:80px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:22px;
+    color:#ddd;
+    margin-bottom:40px;
+}
+
+.btn{
+    display:inline-block;
+    padding:16px 36px;
+    border:2px solid white;
+    border-radius:50px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:white;
+    color:black;
+}
+
+/* ALGEMEEN */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+section{
+    padding:120px 0;
+}
+
+h2{
+    font-size:42px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+section p{
+    text-align:center;
+    color:#cfcfcf;
+}
+
+/* PORTFOLIO */
+
+.gallery{
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.item{
+    overflow:hidden;
+    border-radius:14px;
+}
+
+.item img{
+    transition:.5s;
+}
+
+.item:hover img{
+    transform:scale(1.08);
+}
+
+/* DIENSTEN */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:60px;
+}
+
+.card{
+    background:#181818;
+    padding:35px;
+    border-radius:16px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+/* CONTACT */
+
+.socials{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+}
+
+.socials a{
+    border:1px solid white;
+    padding:12px 20px;
+    border-radius:40px;
+}
+
+.socials a:hover{
+    background:white;
+    color:black;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px;
+    border-top:1px solid #222;
+    color:#888;
+}
+
+/* MOBIEL */
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:52px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.navbar{
+flex-direction:column;
+gap:20px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+}
