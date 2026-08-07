@@ -1,204 +1,425 @@
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>TVR Visuals | Videografie & Fotografie</title>
 
-    <meta name="description"
-        content="Professionele videografie en fotografie door TVR Visuals. Cinematische video's, automotive content en event coverage.">
+    <meta
+        name="description"
+        content="TVR Visuals — professionele videografie, fotografie en social media content."
+    >
 
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 </head>
 
 <body>
 
-    <!-- Navigatie -->
+<!-- =========================
+     NAVIGATIE
+========================= -->
 
-    <header class="navbar">
+<header class="navbar">
 
-        <div class="logo">
-            TVR Visuals
+    <a href="#home" class="nav-logo">
+        <img src="assets/images/tvr-logo wit.png" alt="TVR Visuals logo">
+    </a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#diensten">Diensten</a>
+        <a href="#over">Over mij</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav-button">
+        Neem contact op
+    </a>
+
+</header>
+
+
+<main>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-background">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+
+       <div class="camera-3d">
+    <div class="camera-body">
+        <div class="camera-top"></div>
+        <div class="camera-grip"></div>
+        <div class="camera-mount"></div>
+
+        <div class="camera-ring ring-one"></div>
+        <div class="camera-ring ring-two"></div>
+        <div class="camera-lens"></div>
+
+        <div class="camera-detail"></div>
+    </div>
+</div>
+    </div>
+
+    <div class="hero-content">
+
+        <p class="hero-small">
+            TVR VISUALS
+        </p>
+
+        <h1 class="cinematic-title">
+    <span>Made to</span>
+    <span>be seen.</span>
+</h1>
+
+        <p class="hero-description">
+            Professionele videografie, fotografie en social media content
+            voor automotive, bedrijven, evenementen en merken.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#diensten" class="button button-light">
+                Bekijk mijn werk
+            </a>
+
+            <a href="#contact" class="button button-outline">
+                Neem contact op
+            </a>
         </div>
 
-        <nav>
+    </div>
 
-            <ul>
+    <div class="hero-visual">
+</div>
 
-                <li><a href="#home">Home</a></li>
+    <div class="scroll-indicator">
+        <span></span>
+        Scroll om te ontdekken
+    </div>
 
-                <li><a href="#portfolio">Portfolio</a></li>
+</section>
 
-                <li><a href="#diensten">Diensten</a></li>
 
-                <li><a href="#over">Over mij</a></li>
+<!-- =========================
+     DIENSTEN
+========================= -->
 
-                <li><a href="#contact">Contact</a></li>
+<section id="diensten" class="services">
 
-            </ul>
+    <div class="section-heading">
 
-        </nav>
+        <p class="eyebrow">
+            Wat ik doe
+        </p>
 
-    </header>
+        <h2>
+            Van idee naar<br>
+            <span>sterk beeld.</span>
+        </h2>
 
-    <!-- Hero -->
+        <p>
+            Klik op een dienst om mijn werk te bekijken.
+        </p>
 
-    <section class="hero" id="home">
+    </div>
 
-        <video autoplay muted loop playsinline>
 
-            <source src="/assets/videos/showreel.mp4" type="video/mp4">
+    <div class="service-grid">
 
-        </video>
 
-        <div class="overlay"></div>
+        <!-- VIDEOGRAFIE -->
 
-        <div class="hero-content">
+        <article
+            class="service-card"
+            data-service="videografie"
+        >
 
-            <h1>TVR Visuals</h1>
+            <div class="service-number">
+                01
+            </div>
 
-            <p>
-                Cinematische videografie &
-                professionele fotografie.
-            </p>
+            <div class="service-icon">
+                ▶
+            </div>
 
-            <a href="#portfolio" class="btn">
-                Bekijk Portfolio
+            <div class="service-content">
+
+                <h3>
+                    Videografie
+                </h3>
+
+                <p>
+                    Cinematische video's, automotive video's,
+                    bedrijfsvideo's en aftermovies.
+                </p>
+
+                <span class="service-link">
+                    Bekijk video's →
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- FOTOGRAFIE -->
+
+        <article
+            class="service-card"
+            data-service="fotografie"
+        >
+
+            <div class="service-number">
+                02
+            </div>
+
+            <div class="service-icon">
+                ◎
+            </div>
+
+            <div class="service-content">
+
+                <h3>
+                    Fotografie
+                </h3>
+
+                <p>
+                    Automotive, evenementen, portretten en
+                    professionele bedrijfsfotografie.
+                </p>
+
+                <span class="service-link">
+                    Bekijk foto's →
+                </span>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SHOWCASE
+========================= -->
+
+<section class="showcase">
+
+    <div class="showcase-text">
+
+        <p class="eyebrow">
+            TVR Visuals
+        </p>
+
+        <h2>
+            Automotive.<br>
+            <span>Storytelling.</span>
+        </h2>
+
+        <p>
+            Ik combineer cinematografie, fotografie en editing
+            om auto's, merken en momenten op een aantrekkelijke manier vast te leggen.
+        </p>
+
+        <a href="#contact" class="text-link">
+            Samen iets maken →
+        </a>
+
+    </div>
+
+    <div class="showcase-visual">
+
+    <div class="tvr-3d-object">
+
+        <!-- Centrale bol -->
+        <div class="tvr-3d-sphere"></div>
+
+        <!-- Roterende ringen -->
+        <div class="tvr-orbit tvr-orbit-1"></div>
+        <div class="tvr-orbit tvr-orbit-2"></div>
+        <div class="tvr-orbit tvr-orbit-3"></div>
+
+        <!-- TVR Logo -->
+        <div class="tvr-logo-3d">
+            <img
+                src="assets/images/tvr-logo.png"
+                alt="TVR Visuals"
+            >
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     OVER MIJ
+========================= -->
+
+<<section class="about-section" id="over">
+
+    <div class="about-image-wrap">
+        <div class="about-image">
+            <img src="assets/images/tvr aan het werk.jpg" alt="TVR Visuals aan het werk">
+        </div>
+    </div>
+
+    <div class="about-content">
+
+        <span class="about-label">OVER TVR VISUALS</span>
+
+        <h2>
+            Creatief.<br>
+            <span>Persoonlijk.</span>
+        </h2>
+
+        <p>
+            TVR Visuals is gericht op het creëren van hoogwaardige visuele
+            content met een sterke focus op automotive, bedrijven en social
+            media.
+        </p>
+
+        <p>
+            Van de eerste opname tot de uiteindelijke edit; ieder detail telt.
+        </p>
+
+        <div class="about-logo">
+            <img src="assets/images/tvr-logo.png" alt="TVR Visuals">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact" class="contact">
+
+    <div class="contact-inner">
+
+        <p class="eyebrow">
+            Klaar om iets moois te maken?
+        </p>
+
+        <h2>
+            Let's create<br>
+            <span>something.</span>
+        </h2>
+
+        <p>
+            Heb je een project, auto, evenement of merk
+            dat visueel sterker mag worden?
+        </p>
+
+        <a
+            href="mailto:vanriethijmen@gmail.com"
+            class="contact-button"
+        >
+            Stuur een bericht
+        </a>
+
+        <div class="contact-details">
+
+            <a href="mailto:vanriethijmen@gmail.com">
+                vanriethijmen@gmail.com
+            </a>
+
+            <a href="https://instagram.com/tvrvisuals" target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://www.tiktok.com/@tvr.visuals" target="_blank">
+                TikTok
             </a>
 
         </div>
 
-    </section>
+    </div>
 
-    <!-- Portfolio -->
+</section>
 
-    <section class="portfolio" id="portfolio">
+</main>
 
-        <div class="container">
 
-            <h2>Portfolio</h2>
+<!-- =========================
+     PORTFOLIO MODAL
+========================= -->
 
-            <p>
-                Een selectie van mijn favoriete projecten.
+<div class="portfolio-modal" id="portfolioModal">
+
+    <div class="modal-overlay"></div>
+
+    <div class="modal-window">
+
+        <button class="modal-close" aria-label="Sluiten">
+            ×
+        </button>
+
+        <div class="modal-header">
+
+            <p class="eyebrow" id="modalEyebrow">
+                Portfolio
             </p>
 
-            <div class="gallery">
+            <h2 id="modalTitle">
+                Mijn werk
+            </h2>
 
-                <div class="item">
-                    <img src="assets/images/BMW F80.JPG" alt="">
-                </div>
-
-                <div class="item">
-                    <img src="assets/images/Lamborghini Revuelto.JPG" alt="">
-                </div>
-
-                <div class="item">
-                    <img src="assets/images/BMW F87 Rollers.JPG" alt="">
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Diensten -->
-
-    <section class="services" id="diensten">
-
-        <div class="container">
-
-            <h2>Diensten</h2>
-
-            <div class="cards">
-
-                <div class="card">
-                    <h3>Videografie</h3>
-                    <p>Cinematische video's voor bedrijven, evenementen en automotive.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Fotografie</h3>
-                    <p>Professionele foto's die jouw verhaal perfect vastleggen.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Social Media Content</h3>
-                    <p>Content voor Instagram, TikTok en Reels.</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Over -->
-
-    <section class="about" id="over">
-
-        <div class="container">
-
-            <h2>Over mij</h2>
-
-            <p>
-
-                Sinds kleins af aan ben ik altijd gefascineerd geweest door auto's.
-                Mijn droom was altijd om professioneel automotive fotograaf te worden.
-                Later ontdekte ik dat mijn passie nog meer bij videografie lag.
-                Tegenwoordig ben ik actief op evenementen en werk ik iedere dag
-                aan mijn droom om mezelf steeds verder te ontwikkelen.
-
+            <p id="modalDescription">
+                Bekijk een selectie van mijn werk.
             </p>
 
         </div>
 
-    </section>
 
-    <!-- Contact -->
-
-    <section class="contact" id="contact">
-
-        <div class="container">
-
-            <h2>Neem contact op</h2>
-
-            <p>Email: vanriethijmen@gmail.com</p>
-
-            <p>Telefoon: +31 6 537 888 55</p>
-
-            <div class="socials">
-
-                <a href="https://instagram.com/tvrvisuals" target="_blank">
-                    Instagram
-                </a>
-
-                <a href="https://tiktok.com/@tvr.visuals" target="_blank">
-                    TikTok
-                </a>
-
-            </div>
-
+        <div
+            class="portfolio-grid"
+            id="portfolioGrid"
+        >
+            <div class="portfolio-item">
+    <img 
+        src="assets/images/Lamborghini Temerario.JPG" 
+        alt="Lamborghini Temerario"
+    >
+</div>
         </div>
 
-    </section>
+    </div>
 
-    <footer>
+</div>
 
-        <p>© 2026 TVR Visuals. Alle rechten voorbehouden.</p>
 
-    </footer>
+<footer>
 
-    <script src="js/main.js"></script>
+    <p>
+        © 2026 TVR Visuals. Alle rechten voorbehouden.
+    </p>
+
+</footer>
+
+
+<script src="js/main.js"></script>
 
 </body>
-
-</html> 
+</html>
