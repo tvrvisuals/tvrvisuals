@@ -1,6 +1,6 @@
 /* =========================================================
    TVR VISUALS
-   MAIN.JS
+   MAIN JAVASCRIPT
 ========================================================= */
 
 
@@ -47,7 +47,6 @@ const portfolioData = {
             }
 
         ]
-
     },
 
 
@@ -85,9 +84,7 @@ const portfolioData = {
             }
 
         ]
-
     }
-
 };
 
 
@@ -126,17 +123,14 @@ const modalOverlay =
 
 serviceCards.forEach(card => {
 
-    card.addEventListener(
-        "click",
-        () => {
+    card.addEventListener("click", () => {
 
-            const service =
-                card.dataset.service;
+        const service =
+            card.dataset.service;
 
-            openPortfolio(service);
+        openPortfolio(service);
 
-        }
-    );
+    });
 
 });
 
@@ -149,7 +143,6 @@ function openPortfolio(service) {
 
     const data =
         portfolioData[service];
-
 
     if (!data) {
         return;
@@ -166,24 +159,13 @@ function openPortfolio(service) {
         "Portfolio";
 
 
-    /*
-    Oude kwaliteitsmelding verwijderen.
-    */
-
     const oldQualityNote =
-        document.querySelector(
-            ".quality-note"
-        );
+        document.querySelector(".quality-note");
 
     if (oldQualityNote) {
         oldQualityNote.remove();
     }
 
-
-    /*
-    Nieuwe kwaliteitsmelding,
-    alleen wanneer aanwezig.
-    */
 
     if (data.qualityNote) {
 
@@ -196,17 +178,14 @@ function openPortfolio(service) {
         qualityNote.textContent =
             data.qualityNote;
 
-
         modalDescription.insertAdjacentElement(
             "afterend",
             qualityNote
         );
-
     }
 
 
-    portfolioGrid.innerHTML =
-        "";
+    portfolioGrid.innerHTML = "";
 
 
     data.items.forEach(item => {
@@ -218,9 +197,7 @@ function openPortfolio(service) {
             "portfolio-item";
 
 
-        /* ==============================
-           VIDEO
-        ============================== */
+        /* VIDEO */
 
         if (item.type === "video") {
 
@@ -228,21 +205,15 @@ function openPortfolio(service) {
                 document.createElement("video");
 
             video.controls = true;
-
             video.playsInline = true;
-
-            video.preload =
-                "metadata";
+            video.preload = "metadata";
 
 
             const source =
                 document.createElement("source");
 
-            source.src =
-                item.src;
-
-            source.type =
-                "video/mp4";
+            source.src = item.src;
+            source.type = "video/mp4";
 
 
             video.appendChild(source);
@@ -259,15 +230,12 @@ function openPortfolio(service) {
 
 
             project.appendChild(video);
-
             project.appendChild(title);
 
         }
 
 
-        /* ==============================
-           FOTO
-        ============================== */
+        /* FOTO */
 
         if (item.type === "image") {
 
@@ -307,21 +275,15 @@ function openPortfolio(service) {
         }
 
 
-        portfolioGrid.appendChild(
-            project
-        );
+        portfolioGrid.appendChild(project);
 
     });
 
 
-    portfolioModal.classList.add(
-        "active"
-    );
-
+    portfolioModal.classList.add("active");
 
     document.body.style.overflow =
         "hidden";
-
 }
 
 
@@ -331,27 +293,28 @@ function openPortfolio(service) {
 
 function closePortfolio() {
 
-    portfolioModal.classList.remove(
-        "active"
-    );
+    portfolioModal.classList.remove("active");
 
-
-    document.body.style.overflow =
-        "";
-
+    document.body.style.overflow = "";
 }
 
 
-modalClose.addEventListener(
-    "click",
-    closePortfolio
-);
+if (modalClose) {
+
+    modalClose.addEventListener(
+        "click",
+        closePortfolio
+    );
+}
 
 
-modalOverlay.addEventListener(
-    "click",
-    closePortfolio
-);
+if (modalOverlay) {
+
+    modalOverlay.addEventListener(
+        "click",
+        closePortfolio
+    );
+}
 
 
 /* =========================================================
@@ -363,6 +326,14 @@ function openImageLightbox(
     imageAlt
 ) {
 
+    const oldLightbox =
+        document.querySelector(".image-lightbox");
+
+    if (oldLightbox) {
+        oldLightbox.remove();
+    }
+
+
     const lightbox =
         document.createElement("div");
 
@@ -370,60 +341,62 @@ function openImageLightbox(
         "image-lightbox";
 
 
-    lightbox.innerHTML = `
+    const content =
+        document.createElement("div");
 
-        <div class="image-lightbox-content">
-
-            <button
-                class="image-lightbox-close"
-                aria-label="Sluiten"
-            >
-                ×
-            </button>
-
-            <img
-                src="${imageSource}"
-                alt="${imageAlt}"
-            >
-
-        </div>
-
-    `;
+    content.className =
+        "image-lightbox-content";
 
 
-    document.body.appendChild(
-        lightbox
+    const closeButton =
+        document.createElement("button");
+
+    closeButton.className =
+        "image-lightbox-close";
+
+    closeButton.innerHTML =
+        "&times;";
+
+    closeButton.setAttribute(
+        "aria-label",
+        "Sluiten"
     );
+
+
+    const image =
+        document.createElement("img");
+
+    image.src =
+        imageSource;
+
+    image.alt =
+        imageAlt || "TVR Visuals";
+
+
+    content.appendChild(closeButton);
+    content.appendChild(image);
+
+    lightbox.appendChild(content);
+
+    document.body.appendChild(lightbox);
 
 
     requestAnimationFrame(() => {
 
-        lightbox.classList.add(
-            "active"
-        );
+        lightbox.classList.add("active");
 
     });
 
 
-    const closeButton =
-        lightbox.querySelector(
-            ".image-lightbox-close"
-        );
-
-
     function closeLightbox() {
 
-        lightbox.classList.remove(
-            "active"
-        );
-
+        lightbox.classList.remove("active");
 
         setTimeout(() => {
 
             lightbox.remove();
 
         }, 350);
-
     }
 
 
@@ -438,25 +411,20 @@ function openImageLightbox(
         event => {
 
             if (event.target === lightbox) {
-
                 closeLightbox();
-
             }
 
         }
     );
-
 }
 
 
 /* =========================================================
-   TVR AAN HET WERK
+   TVR AAN HET WERK KLIKBAAR
 ========================================================= */
 
 const aboutWorkImage =
-    document.getElementById(
-        "aboutWorkImage"
-    );
+    document.querySelector(".about-image img");
 
 
 if (aboutWorkImage) {
@@ -472,7 +440,6 @@ if (aboutWorkImage) {
 
         }
     );
-
 }
 
 
@@ -490,9 +457,7 @@ document.addEventListener(
 
 
         const imageLightbox =
-            document.querySelector(
-                ".image-lightbox"
-            );
+            document.querySelector(".image-lightbox");
 
 
         if (imageLightbox) {
@@ -500,18 +465,15 @@ document.addEventListener(
             imageLightbox.remove();
 
             return;
-
         }
 
 
         if (
-            portfolioModal.classList.contains(
-                "active"
-            )
+            portfolioModal &&
+            portfolioModal.classList.contains("active")
         ) {
 
             closePortfolio();
-
         }
 
     }
@@ -531,18 +493,11 @@ document.querySelectorAll(
         event => {
 
             const id =
-                link.getAttribute(
-                    "href"
-                );
+                link.getAttribute("href");
 
 
-            if (
-                !id ||
-                id === "#"
-            ) {
-
+            if (!id || id === "#") {
                 return;
-
             }
 
 
@@ -573,104 +528,165 @@ document.querySelectorAll(
 
 
 /* =========================================================
-   SUBTIELE 3D LOGO MUISBEWEGING
-
-   ALLEEN het grote 3D-logo.
-   NIET de kaarten.
+   SERVICE CARD GLOW VOLGT MUIS
+   LET OP:
+   ALLEEN DE GLOW.
+   NIET DE TRANSFORM VAN DE KAART.
 ========================================================= */
 
-const tvrObject =
-    document.querySelector(
-        ".tvr-3d-object"
+document.querySelectorAll(
+    ".service-card"
+).forEach(card => {
+
+    card.addEventListener(
+        "mousemove",
+        event => {
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                event.clientX - rect.left;
+
+            const y =
+                event.clientY - rect.top;
+
+
+            card.style.setProperty(
+                "--mouse-x",
+                `${x}px`
+            );
+
+            card.style.setProperty(
+                "--mouse-y",
+                `${y}px`
+            );
+
+        }
     );
 
 
-if (
-    tvrObject &&
-    window.matchMedia(
-        "(min-width: 901px)"
-    ).matches
-) {
+    card.addEventListener(
+        "mouseleave",
+        () => {
 
-    let targetX = 0;
-    let targetY = 0;
+            card.style.setProperty(
+                "--mouse-x",
+                "50%"
+            );
 
-    let currentX = 0;
-    let currentY = 0;
+            card.style.setProperty(
+                "--mouse-y",
+                "50%"
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   3D TVR BOL VOLGT MUIS
+========================================================= */
+
+const tvrObject =
+    document.querySelector(".tvr-3d-object");
+
+
+if (tvrObject) {
+
+    let targetRotateX = 0;
+    let targetRotateY = 0;
+
+    let currentRotateX = 0;
+    let currentRotateY = 0;
 
 
     document.addEventListener(
         "mousemove",
         event => {
 
-            targetX =
-                (
-                    event.clientX /
-                    window.innerWidth
-                    -
-                    0.5
-                )
-                *
-                2;
+            /*
+            Alleen op desktop.
+            */
 
-            targetY =
-                (
-                    event.clientY /
-                    window.innerHeight
-                    -
-                    0.5
-                )
-                *
-                2;
+            if (window.innerWidth <= 900) {
+                return;
+            }
+
+
+            const mouseX =
+                event.clientX / window.innerWidth;
+
+            const mouseY =
+                event.clientY / window.innerHeight;
+
+
+            /*
+            Van -1 tot +1
+            */
+
+            const normalizedX =
+                (mouseX - 0.5) * 2;
+
+            const normalizedY =
+                (mouseY - 0.5) * 2;
+
+
+            /*
+            Meer beweging dan vorige versie,
+            maar nog steeds subtiel.
+            */
+
+            targetRotateY =
+                normalizedX * 10;
+
+            targetRotateX =
+                normalizedY * -7;
 
         }
     );
 
 
-    function animateLogo() {
+    document.addEventListener(
+        "mouseleave",
+        () => {
 
-        currentX +=
-            (
-                targetX -
-                currentX
-            )
-            *
-            0.025;
+            targetRotateX = 0;
+            targetRotateY = 0;
 
-        currentY +=
-            (
-                targetY -
-                currentY
-            )
-            *
-            0.025;
+        }
+    );
 
 
-        const rotateY =
-            currentX * 5;
+    function animateTvrObject() {
 
-        const rotateX =
-            currentY * -4;
+        /*
+        Hoe lager dit getal,
+        hoe soepeler hij achter je muis aan loopt.
+        */
+
+        currentRotateX +=
+            (targetRotateX - currentRotateX) * 0.055;
+
+        currentRotateY +=
+            (targetRotateY - currentRotateY) * 0.055;
 
 
         tvrObject.style.transform = `
-
-            rotateX(${rotateX}deg)
-
-            rotateY(${rotateY}deg)
-
+            rotateX(${currentRotateX}deg)
+            rotateY(${currentRotateY}deg)
         `;
 
 
         requestAnimationFrame(
-            animateLogo
+            animateTvrObject
         );
-
     }
 
 
-    animateLogo();
-
+    animateTvrObject();
 }
 
 
