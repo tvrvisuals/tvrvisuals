@@ -1086,17 +1086,24 @@ const shutterVideo = document.querySelector(".shutter-video");
 
 if (shutterVideo) {
     shutterVideo.muted = true;
+    shutterVideo.defaultMuted = true;
     shutterVideo.playsInline = true;
 
-    const startShutterVideo = () => {
-        shutterVideo.play().catch(() => {
-            // Mobiele browser blokkeert autoplay nog.
-        });
+    const tryAutoplay = () => {
+        const playPromise = shutterVideo.play();
+
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                console.log("Shutter autoplay geblokkeerd door browser.");
+            });
+        }
     };
 
-    startShutterVideo();
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", tryAutoplay);
+    } else {
+        tryAutoplay();
+    }
 
-    document.addEventListener("touchstart", startShutterVideo, {
-        once: true
-    });
+    shutterVideo.addEventListener("canplay", tryAutoplay, { once: true });
 }
