@@ -503,106 +503,31 @@ Dit element krijgt de muis-rotatie vanuit JavaScript.
         contrast(1.08)
         saturate(0.65);
 }
-
-
-/* =========================================================
-   SLUITER OPEN / DICHT EFFECT
-========================================================= */
-
-/*
-De echte foto blijft zichtbaar.
-
-Daar bovenop ligt een donkere iris.
-De binnenste zwarte opening wordt groter en kleiner.
-
-Daardoor lijkt het alsof de sluiter rustig ademt.
-*/
-
-.shutter-opening {
-    --iris-size: 14%;
-
+.shutter-video {
     position: absolute;
 
-    inset: 17%;
+    left: 50.3%;
+    top: 48%;
 
+    width:  52%;
+    height: 52%;
+
+    transform: translate(-50%, -50%);
+
+    object-fit: cover;
     border-radius: 50%;
 
     z-index: 3;
 
     pointer-events: none;
 
-    background:
-        radial-gradient(
-            circle at center,
+    background: #000;
 
-            rgba(0, 0, 0, 1)
-                0,
-
-            rgba(0, 0, 0, 0.98)
-                var(--iris-size),
-
-            rgba(0, 0, 0, 0.72)
-                calc(var(--iris-size) + 2%),
-
-            rgba(0, 0, 0, 0.22)
-                calc(var(--iris-size) + 18%),
-
-            transparent
-                60%
-        );
-
-    animation:
-        shutterBreath
-        7.5s
-        ease-in-out
-        infinite;
+    filter:
+        brightness(0.68)
+        contrast(1.12)
+        saturate(0.45);
 }
-
-
-/*
-Extra subtiele rotatie maakt het effect mechanischer,
-maar niet overdreven "AI".
-*/
-
-.shutter-opening::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: 50%;
-
-    border:
-        1px solid rgba(255, 255, 255, 0.025);
-
-    background:
-        repeating-conic-gradient(
-            from 12deg,
-
-            rgba(0, 0, 0, 0.16)
-                0deg 27deg,
-
-            rgba(255, 255, 255, 0.012)
-                27deg 30deg,
-
-            rgba(0, 0, 0, 0.16)
-                30deg 57deg,
-
-            rgba(255, 255, 255, 0.012)
-                57deg 60deg
-        );
-
-    mix-blend-mode:
-        multiply;
-
-    animation:
-        shutterBladeTurn
-        7.5s
-        ease-in-out
-        infinite;
-}
-
 
 /* Reflectie */
 
@@ -683,48 +608,6 @@ maar niet overdreven "AI".
 
 
 /* Open / dicht */
-
-@keyframes shutterBreath {
-
-    0%,
-    100% {
-        --iris-size: 11%;
-
-        transform:
-            scale(1);
-
-        opacity: 0.93;
-    }
-
-    45%,
-    55% {
-        --iris-size: 31%;
-
-        transform:
-            scale(0.985);
-
-        opacity: 0.72;
-    }
-}
-
-
-/* Blade movement */
-
-@keyframes shutterBladeTurn {
-
-    0%,
-    100% {
-        transform:
-            rotate(0deg)
-            scale(1.02);
-    }
-
-    50% {
-        transform:
-            rotate(13deg)
-            scale(0.94);
-    }
-}
 
 
 /* =========================================================
@@ -1812,11 +1695,11 @@ footer {
 
         position: absolute;
 
-        top: 92px;
+        top: 89px;
 
         left: 4%;
 
-        width: 118px;
+        width: 110px;
 
         z-index: 20;
 
@@ -2188,4 +2071,22 @@ footer {
         transform: translateY(3px);
     }
 
+}
+/* =========================================================
+   DEFINITIEVE POSITIE MOBIEL TVR LOGO
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .mobile-hero-logo {
+        top: 88px !important;
+        left: 4% !important;
+
+        width: 105px !important;
+    }
+
+    .mobile-hero-logo img {
+        width: 105px !important;
+        height: auto !important;
+    }
 }
