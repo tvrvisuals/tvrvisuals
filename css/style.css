@@ -992,6 +992,21 @@ footer {
     perspective: 1000px;
     opacity: 0.95;
     animation: cameraFloat 6s ease-in-out infinite;
+
+.mobile-hero-logo {
+    display: block;
+    position: absolute;
+    top: 18px;
+    right: 6%;
+    width: 55px;
+    z-index: 10;
+}
+
+.mobile-hero-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 }
 
 .camera-body {
@@ -3136,4 +3151,7 @@ header .cta-button:hover,
     opacity: 1 !important;
     filter: grayscale(1) brightness(0) invert(1) contrast(300%) !important;
     mix-blend-mode: normal !important;
+}
+.mobile-hero-logo {
+    display: none;
 }
