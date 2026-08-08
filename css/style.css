@@ -1,6 +1,12 @@
-/* =========================================
+/* =========================================================
+   TVR VISUALS
+   CLEAN PREMIUM STYLESHEET
+========================================================= */
+
+
+/* =========================================================
    BASIS
-========================================= */
+========================================================= */
 
 * {
     margin: 0;
@@ -15,7 +21,9 @@ html {
 body {
     background: #050505;
     color: #ffffff;
+
     font-family: "Inter", sans-serif;
+
     overflow-x: hidden;
 }
 
@@ -25,75 +33,152 @@ a {
 }
 
 button {
-    font-family: inherit;
+    font: inherit;
 }
 
 
-/* =========================================
+/* =========================================================
    NAVBAR
-========================================= */
+========================================================= */
 
 .navbar {
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
-    height: 85px;
+    height: 88px;
 
-    display: flex;
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+
     align-items: center;
-    justify-content: space-between;
 
-    padding: 0 5%;
+    padding: 0 5.5vw;
+
+    background: rgba(5, 5, 5, 0.76);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 
     z-index: 1000;
-
-    background: rgba(5, 5, 5, 0.65);
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* NAVIGATIE MIDDEN */
 
-.navbar nav {
+/* DESKTOP LOGO LINKS */
+
+.nav-logo {
+    justify-self: start;
+
+    width: 50px;
+    height: 50px;
+
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.nav-logo img {
+    width: 50px;
+    height: 50px;
+
+    object-fit: contain;
+
+    filter:
+        brightness(0)
+        invert(1);
+
+    display: block;
+}
+
+
+/* NAVIGATIE EXACT MIDDEN */
+
+.navbar nav {
+    grid-column: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     gap: 38px;
 }
 
 .navbar nav a {
-    color: #bdbdbd;
+    color: rgba(255, 255, 255, 0.68);
+
     font-size: 14px;
+    font-weight: 400;
 
-    text-decoration: none;
+    white-space: nowrap;
 
-    transition: color 0.25s ease;
+    transition:
+        color 0.65s ease-in-out,
+        opacity 0.65s ease-in-out;
 }
 
 .navbar nav a:hover {
     color: #ffffff;
 }
 
-.nav-button {
-    padding: 12px 20px;
 
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 100px;
+/* CONTACT RECHTS */
+
+.nav-button {
+    grid-column: 3;
+
+    justify-self: end;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 0 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: #ffffff;
 
     font-size: 13px;
 
-    transition: 0.3s ease;
+    transition:
+        transform 0.9s ease-in-out,
+        background-color 0.9s ease-in-out,
+        border-color 0.9s ease-in-out,
+        box-shadow 0.9s ease-in-out;
 }
 
 .nav-button:hover {
-    background: white;
-    color: black;
+    transform: translateY(-3px);
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border-color:
+        rgba(255, 255, 255, 0.32);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.30);
 }
 
 
-/* =========================================
+/* =========================================================
    HERO
-========================================= */
+========================================================= */
 
 .hero {
     position: relative;
@@ -103,91 +188,191 @@ button {
     display: flex;
     align-items: center;
 
-    padding: 130px 8% 80px;
+    padding:
+        130px
+        8%
+        80px;
 
     overflow: hidden;
 }
 
 .hero-content {
     position: relative;
-    z-index: 5;
 
     max-width: 760px;
+
+    z-index: 5;
 }
 
 .hero-small {
-    font-size: 12px;
-    letter-spacing: 5px;
+    margin-bottom: 25px;
 
     color: #888;
 
-    margin-bottom: 25px;
+    font-size: 12px;
+
+    letter-spacing: 5px;
 }
 
-.hero h1 {
-    font-size: clamp(55px, 8vw, 120px);
 
-    line-height: 0.92;
+/* TITEL */
+
+.cinematic-title {
+    font-size:
+        clamp(55px, 8vw, 120px);
+
+    line-height: 1.02;
 
     letter-spacing: -6px;
 
     font-weight: 700;
+
+    overflow: visible;
 }
 
-.hero h1 span {
-    color: #777;
+.cinematic-title span {
+    display: block;
+
+    color: #ffffff;
+
+    opacity: 0;
+
+    transform:
+        translateY(55px);
+
+    filter: blur(8px);
+
+    animation:
+        cinematicTitleIn
+        1.3s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
 }
+
+.cinematic-title span:nth-child(1) {
+    animation-delay: 0.10s;
+}
+
+.cinematic-title span:nth-child(2) {
+    animation-delay: 0.28s;
+}
+
+@keyframes cinematicTitleIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(55px);
+
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        filter: blur(0);
+    }
+}
+
+
+/* HERO BESCHRIJVING */
 
 .hero-description {
     max-width: 570px;
 
-    color: #999;
-
-    line-height: 1.7;
-
     margin-top: 35px;
 
+    color: #999;
+
     font-size: 16px;
+
+    line-height: 1.7;
 }
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .hero-buttons {
     display: flex;
+
     gap: 15px;
 
     margin-top: 40px;
 }
 
-.button {
-    padding: 15px 25px;
+.button,
+.contact-button {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        15px
+        25px;
 
     border-radius: 100px;
 
-    font-size: 13px;
+    overflow: hidden;
 
-    transition: 0.3s ease;
+    transition:
+        transform 0.9s ease-in-out,
+        box-shadow 0.9s ease-in-out,
+        background-color 0.9s ease-in-out,
+        border-color 0.9s ease-in-out;
+}
+
+
+/*
+Dit is expres maar 4 pixels.
+Hierdoor voelt het premium in plaats van springerig.
+*/
+
+.button:hover,
+.contact-button:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 14px 38px rgba(0, 0, 0, 0.32),
+        0 0 25px rgba(255, 255, 255, 0.035);
 }
 
 .button-light {
-    background: white;
-    color: black;
-}
+    background: #ffffff;
 
-.button-light:hover {
-    transform: translateY(-3px);
+    color: #000000;
 }
 
 .button-outline {
-    border: 1px solid rgba(255,255,255,0.25);
+    color: #ffffff;
+
+    background: transparent;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.24);
 }
 
 .button-outline:hover {
-    background: rgba(255,255,255,0.08);
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border-color:
+        rgba(255, 255, 255, 0.38);
 }
 
 
-/* =========================================
-   3D ANIMATIE
-========================================= */
+/* =========================================================
+   HERO ACHTERGROND
+========================================================= */
 
 .hero-background {
     position: absolute;
@@ -197,88 +382,6 @@ button {
     pointer-events: none;
 }
 
-.camera-3d {
-    position: absolute;
-
-    width: 520px;
-    height: 520px;
-
-    right: 8%;
-    top: 50%;
-
-    transform:
-        translateY(-50%)
-        rotateX(18deg)
-        rotateY(-20deg);
-
-    transform-style: preserve-3d;
-
-    animation: cameraFloat 8s ease-in-out infinite;
-}
-
-.camera-ring {
-    position: absolute;
-
-    inset: 50%;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(255,255,255,0.16);
-
-    transform-style: preserve-3d;
-}
-
-.ring-one {
-    width: 480px;
-    height: 480px;
-
-    margin: -240px;
-
-    animation: spin 18s linear infinite;
-}
-
-.ring-two {
-    width: 340px;
-    height: 340px;
-
-    margin: -170px;
-
-    border-color: rgba(255,255,255,0.25);
-
-    animation: spinReverse 12s linear infinite;
-}
-
-.camera-lens {
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: 190px;
-    height: 190px;
-
-    margin: -95px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #444,
-            #111 30%,
-            #050505 60%,
-            #111
-        );
-
-    border: 1px solid rgba(255,255,255,0.3);
-
-    box-shadow:
-        0 0 100px rgba(255,255,255,0.08),
-        inset 0 0 50px black;
-
-    animation: lensPulse 5s ease-in-out infinite;
-}
-
 .orb {
     position: absolute;
 
@@ -286,7 +389,7 @@ button {
 
     filter: blur(100px);
 
-    opacity: 0.16;
+    opacity: 0.30;
 }
 
 .orb-one {
@@ -309,9 +412,213 @@ button {
     background: #444;
 }
 
+
+/* =========================================================
+   CAMERA
+========================================================= */
+
+.camera-3d {
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    right: 8%;
+    top: 50%;
+
+    opacity: 0.23;
+
+    transform:
+        translateY(-50%)
+        rotateX(18deg)
+        rotateY(-20deg);
+
+    transform-style: preserve-3d;
+
+    animation:
+        cameraFloat
+        8s
+        ease-in-out
+        infinite;
+}
+
+.camera-body {
+    position: absolute;
+
+    width: 310px;
+    height: 205px;
+
+    right: 40px;
+    top: 45px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #252525,
+            #111111 45%,
+            #080808
+        );
+
+    border:
+        1px solid #383838;
+
+    box-shadow:
+        25px 30px 50px rgba(0, 0, 0, 0.65),
+        inset 2px 2px 8px rgba(255, 255, 255, 0.06),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.8);
+}
+
+.camera-top {
+    position: absolute;
+
+    width: 105px;
+    height: 24px;
+
+    top: -18px;
+    left: 48px;
+
+    border-radius:
+        7px 7px 3px 3px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292929,
+            #101010
+        );
+
+    border:
+        1px solid #3a3a3a;
+}
+
+.camera-grip {
+    position: absolute;
+
+    width: 58px;
+    height: 155px;
+
+    right: -35px;
+    top: 28px;
+
+    border-radius:
+        8px 18px 18px 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #171717,
+            #090909
+        );
+
+    border:
+        1px solid #303030;
+
+    transform:
+        rotate(5deg);
+}
+
+.camera-mount {
+    position: absolute;
+
+    width: 38px;
+    height: 18px;
+
+    top: -29px;
+    left: 82px;
+
+    border-radius: 4px;
+
+    background: #0d0d0d;
+
+    border:
+        1px solid #353535;
+}
+
+.camera-lens {
+    position: absolute;
+
+    width: 145px;
+    height: 145px;
+
+    left: -58px;
+    top: 28px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 38% 35%,
+            #555 0%,
+            #202020 12%,
+            #090909 38%,
+            #151515 60%,
+            #050505 100%
+        );
+
+    border:
+        7px solid #292929;
+
+    box-shadow:
+        0 0 0 2px #454545,
+        0 15px 25px rgba(0, 0, 0, 0.6),
+        inset 5px 5px 12px rgba(255, 255, 255, 0.08),
+        inset -8px -8px 15px rgba(0, 0, 0, 0.8);
+}
+
+.camera-ring {
+    position: absolute;
+
+    border-radius: 50%;
+}
+
+.camera-ring.ring-one {
+    width: 125px;
+    height: 125px;
+
+    left: -48px;
+    top: 38px;
+
+    border:
+        2px solid #4a4a4a;
+
+    opacity: 0.55;
+}
+
+.camera-ring.ring-two {
+    width: 105px;
+    height: 105px;
+
+    left: -38px;
+    top: 48px;
+
+    border:
+        1px solid #686868;
+
+    opacity: 0.30;
+}
+
+.camera-detail {
+    position: absolute;
+
+    width: 42px;
+    height: 8px;
+
+    right: 25px;
+    top: 22px;
+
+    border-radius: 4px;
+
+    background: #3a3a3a;
+
+    opacity: 0.7;
+}
+
 @keyframes cameraFloat {
 
-    0%, 100% {
+    0%,
+    100% {
         transform:
             translateY(-50%)
             rotateX(18deg)
@@ -321,57 +628,26 @@ button {
     50% {
         transform:
             translateY(-54%)
-            rotateX(22deg)
-            rotateY(15deg);
-    }
-}
-
-@keyframes spin {
-
-    from {
-        transform: rotateZ(0deg);
-    }
-
-    to {
-        transform: rotateZ(360deg);
-    }
-}
-
-@keyframes spinReverse {
-
-    from {
-        transform: rotateZ(360deg);
-    }
-
-    to {
-        transform: rotateZ(0deg);
-    }
-}
-
-@keyframes lensPulse {
-
-    0%, 100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.06);
+            rotateX(21deg)
+            rotateY(10deg);
     }
 }
 
 
-/* =========================================
+/* =========================================================
    SCROLL INDICATOR
-========================================= */
+========================================================= */
 
 .scroll-indicator {
     position: absolute;
 
-    bottom: 35px;
     left: 8%;
+    bottom: 35px;
 
     display: flex;
+
     align-items: center;
+
     gap: 12px;
 
     color: #666;
@@ -387,18 +663,21 @@ button {
 }
 
 
-/* =========================================
+/* =========================================================
    ALGEMENE SECTIES
-========================================= */
+========================================================= */
 
 .services,
-.about,
 .showcase,
 .contact {
-    padding: 150px 8%;
+    padding:
+        150px
+        8%;
 }
 
 .eyebrow {
+    margin-bottom: 20px;
+
     color: #777;
 
     text-transform: uppercase;
@@ -406,8 +685,6 @@ button {
     font-size: 11px;
 
     letter-spacing: 4px;
-
-    margin-bottom: 20px;
 }
 
 .section-heading {
@@ -417,10 +694,10 @@ button {
 }
 
 .section-heading h2,
-.about h2,
 .showcase h2,
 .contact h2 {
-    font-size: clamp(45px, 6vw, 85px);
+    font-size:
+        clamp(45px, 6vw, 85px);
 
     line-height: 0.95;
 
@@ -428,7 +705,6 @@ button {
 }
 
 .section-heading h2 span,
-.about h2 span,
 .showcase h2 span,
 .contact h2 span {
     color: #666;
@@ -443,17 +719,17 @@ button {
 }
 
 
-/* =========================================
-   SERVICE CARDS
-========================================= */
+/* =========================================================
+   DIENSTEN
+========================================================= */
 
 .service-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(2, minmax(0, 1fr));
 
-    gap: 20px;
+    gap: 22px;
 }
 
 .service-card {
@@ -464,8 +740,14 @@ button {
     padding: 35px;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
+
+    overflow: hidden;
+
+    cursor: pointer;
 
     background:
         linear-gradient(
@@ -474,43 +756,75 @@ button {
             #080808
         );
 
-    border: 1px solid #202020;
+    border:
+        1px solid #202020;
 
-    cursor: pointer;
+    /*
+    DIT IS DE KAARTTRANSITION.
 
-    overflow: hidden;
+    Geen JavaScript transform.
+    Geen snelle custom curve.
+    */
 
     transition:
-        transform 0.5s ease,
-        border-color 0.5s ease;
+        transform 0.95s ease-in-out,
+        border-color 0.95s ease-in-out,
+        box-shadow 0.95s ease-in-out;
 }
+
+
+/* LICHT DAT LANGZAAM IN KOMT */
 
 .service-card::before {
     content: "";
 
     position: absolute;
 
-    width: 300px;
-    height: 300px;
+    inset: -25%;
 
-    right: -150px;
-    bottom: -150px;
+    background:
+        radial-gradient(
+            circle at 50% 55%,
+            rgba(255, 255, 255, 0.10),
+            rgba(255, 255, 255, 0.035) 28%,
+            transparent 62%
+        );
 
-    border-radius: 50%;
+    opacity: 0;
 
-    background: rgba(255,255,255,0.05);
+    transform:
+        scale(0.92);
 
-    transition: 0.5s ease;
+    pointer-events: none;
+
+    transition:
+        opacity 1.15s ease-in-out,
+        transform 1.15s ease-in-out;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
+    transform:
+        translateY(-7px);
 
-    border-color: #555;
+    border-color:
+        rgba(255, 255, 255, 0.17);
+
+    box-shadow:
+        0 22px 65px rgba(0, 0, 0, 0.40),
+        0 0 40px rgba(255, 255, 255, 0.025);
 }
 
 .service-card:hover::before {
-    transform: scale(1.5);
+    opacity: 1;
+
+    transform:
+        scale(1);
+}
+
+.service-card > * {
+    position: relative;
+
+    z-index: 2;
 }
 
 .service-number {
@@ -520,30 +834,25 @@ button {
 }
 
 .service-icon {
-    font-size: 35px;
-
     color: #aaa;
-}
 
-.service-content {
-    position: relative;
-    z-index: 2;
+    font-size: 35px;
 }
 
 .service-content h3 {
-    font-size: 30px;
-
     margin-bottom: 15px;
+
+    font-size: 30px;
 }
 
 .service-content p {
-    color: #777;
+    max-width: 330px;
 
-    line-height: 1.6;
+    color: #777;
 
     font-size: 14px;
 
-    max-width: 330px;
+    line-height: 1.6;
 }
 
 .service-link {
@@ -551,22 +860,23 @@ button {
 
     margin-top: 25px;
 
-    color: white;
+    color: #ffffff;
 
     font-size: 13px;
 }
 
 
-/* =========================================
+/* =========================================================
    SHOWCASE
-========================================= */
+========================================================= */
 
 .showcase {
     min-height: 80vh;
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     align-items: center;
 
@@ -578,11 +888,11 @@ button {
 .showcase-text > p:not(.eyebrow) {
     max-width: 520px;
 
+    margin-top: 30px;
+
     color: #888;
 
     line-height: 1.8;
-
-    margin-top: 30px;
 }
 
 .text-link {
@@ -590,191 +900,413 @@ button {
 
     margin-top: 35px;
 
-    border-bottom: 1px solid #555;
-
     padding-bottom: 7px;
 
+    border-bottom:
+        1px solid #555;
+
     font-size: 13px;
+
+    transition:
+        border-color 0.8s ease-in-out,
+        opacity 0.8s ease-in-out;
 }
+
+.text-link:hover {
+    border-color: #ffffff;
+}
+
+
+/* =========================================================
+   TVR 3D OBJECT
+========================================================= */
 
 .showcase-visual {
+    position: relative;
+
+    min-height: 620px;
+
     display: flex;
 
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    perspective: 1200px;
 }
 
-.showcase-circle {
-    width: min(420px, 70vw);
-    aspect-ratio: 1;
+.tvr-3d-object {
+    position: relative;
+
+    width: 520px;
+    height: 520px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transform-style: preserve-3d;
+}
+
+.tvr-3d-sphere {
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
 
     border-radius: 50%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     background:
         radial-gradient(
-            circle,
-            #1c1c1c,
-            #070707
+            circle at 35% 30%,
+            #3a3a3a,
+            #171717 25%,
+            #080808 60%,
+            #000000
         );
 
-    border: 1px solid #292929;
+    box-shadow:
+        inset -25px -25px 45px rgba(0, 0, 0, 0.9),
+        inset 15px 15px 30px rgba(255, 255, 255, 0.04),
+        0 0 70px rgba(255, 255, 255, 0.035);
 
-    animation: showcaseFloat 7s ease-in-out infinite;
+    animation:
+        spherePulse
+        6s
+        ease-in-out
+        infinite;
 }
 
-.showcase-circle img {
-    width: 45%;
+@keyframes spherePulse {
 
-    object-fit: contain;
-
-    opacity: 0.8;
-}
-
-@keyframes showcaseFloat {
-
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
+    0%,
+    100% {
+        transform:
+            scale(1);
     }
 
     50% {
-        transform: translateY(-15px) rotate(3deg);
+        transform:
+            scale(1.025);
+    }
+}
+
+.tvr-orbit {
+    position: absolute;
+
+    width: 360px;
+    height: 145px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 50%;
+}
+
+.tvr-orbit-1 {
+    animation:
+        orbit1
+        12s
+        linear
+        infinite;
+}
+
+.tvr-orbit-2 {
+    width: 340px;
+    height: 135px;
+
+    border-color:
+        rgba(255, 255, 255, 0.10);
+
+    animation:
+        orbit2
+        16s
+        linear
+        infinite;
+}
+
+.tvr-orbit-3 {
+    width: 320px;
+    height: 125px;
+
+    border-color:
+        rgba(255, 255, 255, 0.08);
+
+    animation:
+        orbit3
+        20s
+        linear
+        infinite;
+}
+
+@keyframes orbit1 {
+
+    from {
+        transform:
+            rotateX(68deg)
+            rotateZ(0deg);
+    }
+
+    to {
+        transform:
+            rotateX(68deg)
+            rotateZ(360deg);
+    }
+}
+
+@keyframes orbit2 {
+
+    from {
+        transform:
+            rotateX(68deg)
+            rotateY(55deg)
+            rotateZ(0deg);
+    }
+
+    to {
+        transform:
+            rotateX(68deg)
+            rotateY(55deg)
+            rotateZ(-360deg);
+    }
+}
+
+@keyframes orbit3 {
+
+    from {
+        transform:
+            rotateX(68deg)
+            rotateY(-55deg)
+            rotateZ(0deg);
+    }
+
+    to {
+        transform:
+            rotateX(68deg)
+            rotateY(-55deg)
+            rotateZ(360deg);
+    }
+}
+
+.tvr-logo-3d {
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+
+    animation:
+        tvrLogoFloat
+        6s
+        ease-in-out
+        infinite;
+}
+
+.tvr-logo-3d img {
+    width: 100%;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+@keyframes tvrLogoFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-7px);
     }
 }
 
 
-/* =========================================
-   ABOUT
-========================================= */
+/* =========================================================
+   OVER MIJ
+========================================================= */
 
-.about {
+.about-section {
+    width:
+        min(1280px, calc(100% - 80px));
+
+    min-height: 720px;
+
+    margin: 0 auto;
+
+    padding: 140px 0;
+
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 0.9fr;
 
     align-items: center;
 
-    gap: 100px;
+    gap: 110px;
+}
+
+.about-image-wrap {
+    position: relative;
 }
 
 .about-image {
-    min-height: 550px;
+    position: relative;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
 
-    background:
-        linear-gradient(
-            135deg,
-            #151515,
-            #080808
-        );
+    aspect-ratio: 0.88;
 
-    border: 1px solid #222;
+    overflow: hidden;
+
+    background: #111;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    /*
+    Zelfde rustige omhoogbeweging als kaarten.
+    */
+
+    transition:
+        transform 0.95s ease-in-out,
+        border-color 0.95s ease-in-out,
+        box-shadow 0.95s ease-in-out;
 }
 
-.about-logo img {
-    width: 230px;
+.about-image img {
+    width: 100%;
+    height: 100%;
 
-    opacity: 0.75;
+    display: block;
+
+    object-fit: cover;
+
+    cursor: zoom-in;
+
+    filter:
+        grayscale(100%);
+
+    /*
+    KLEUR FADE:
+    duidelijk zichtbaar maar niet overdreven traag.
+    */
+
+    transition:
+        filter 1.45s ease-in-out,
+        transform 1.05s ease-in-out;
 }
 
-.about-content > p:not(.eyebrow) {
+.about-image:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(255, 255, 255, 0.16);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+.about-image:hover img {
+    filter:
+        grayscale(0%);
+
+    transform:
+        scale(1.018);
+}
+
+.about-content {
+    max-width: 570px;
+}
+
+.about-label {
+    display: block;
+
+    margin-bottom: 24px;
+
+    color:
+        rgba(255, 255, 255, 0.42);
+
+    font-size: 11px;
+
+    letter-spacing: 0.28em;
+}
+
+.about-content h2 {
+    margin-bottom: 38px;
+
+    font-size:
+        clamp(52px, 5vw, 78px);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.055em;
+}
+
+.about-content h2 span {
+    color:
+        rgba(255, 255, 255, 0.38);
+}
+
+.about-content p {
     max-width: 520px;
 
-    margin-top: 30px;
+    margin-bottom: 24px;
 
-    color: #888;
+    color:
+        rgba(255, 255, 255, 0.52);
+
+    font-size: 16px;
 
     line-height: 1.8;
 }
 
+.about-logo {
+    width: 72px;
+    height: 72px;
 
-/* =========================================
-   CONTACT
-========================================= */
+    margin-top: 50px;
 
-.contact {
-    text-align: center;
+    opacity: 0.42;
 
-    background: #080808;
+    transition:
+        opacity 0.9s ease-in-out,
+        transform 0.9s ease-in-out;
 }
 
-.contact-inner {
-    max-width: 850px;
+.about-logo img {
+    width: 100%;
+    height: 100%;
 
-    margin: auto;
+    object-fit: contain;
 }
 
-.contact h2 {
-    font-size: clamp(55px, 8vw, 110px);
-}
+.about-logo:hover {
+    opacity: 0.85;
 
-.contact-inner > p:not(.eyebrow) {
-    color: #888;
-
-    line-height: 1.7;
-
-    max-width: 500px;
-
-    margin: 30px auto;
-}
-
-.contact-button {
-    display: inline-block;
-
-    margin-top: 25px;
-
-    padding: 17px 30px;
-
-    border-radius: 100px;
-
-    background: white;
-
-    color: black;
-
-    font-size: 13px;
-
-    transition: 0.3s ease;
-}
-
-.contact-button:hover {
-    transform: translateY(-4px);
-}
-
-.contact-details {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 35px;
-
-    margin-top: 60px;
-
-    color: #666;
-
-    font-size: 12px;
-}
-
-.contact-details a:hover {
-    color: white;
+    transform:
+        translateY(-4px);
 }
 
 
-/* =========================================
-   MODAL
-========================================= */
+/* =========================================================
+   PORTFOLIO MODAL
+========================================================= */
 
 .portfolio-modal {
     position: fixed;
 
     inset: 0;
-
-    z-index: 2000;
 
     display: none;
 
@@ -782,6 +1314,8 @@ button {
     justify-content: center;
 
     padding: 30px;
+
+    z-index: 2000;
 }
 
 .portfolio-modal.active {
@@ -793,27 +1327,31 @@ button {
 
     inset: 0;
 
-    background: rgba(0,0,0,0.88);
+    background:
+        rgba(0, 0, 0, 0.90);
 
-    backdrop-filter: blur(20px);
+    backdrop-filter:
+        blur(18px);
 }
 
 .modal-window {
     position: relative;
 
-    z-index: 2;
-
-    width: min(1100px, 100%);
+    width:
+        min(1100px, 100%);
 
     max-height: 90vh;
 
-    overflow-y: auto;
-
     padding: 50px;
+
+    overflow-y: auto;
 
     background: #0c0c0c;
 
-    border: 1px solid #252525;
+    border:
+        1px solid #252525;
+
+    z-index: 2;
 }
 
 .modal-close {
@@ -826,7 +1364,7 @@ button {
 
     background: transparent;
 
-    color: white;
+    color: #ffffff;
 
     font-size: 35px;
 
@@ -846,20 +1384,35 @@ button {
 }
 
 .modal-header > p:last-child {
-    color: #777;
-
     margin-top: 15px;
+
+    color: #777;
 
     line-height: 1.6;
 }
+
+.quality-note {
+    margin-top: 12px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PORTFOLIO KAARTEN
+========================================================= */
 
 .portfolio-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(2, 1fr);
+        repeat(2, minmax(0, 1fr));
 
-    gap: 20px;
+    gap: 22px;
 }
 
 .portfolio-item {
@@ -867,313 +1420,419 @@ button {
 
     overflow: hidden;
 
+    padding-bottom: 10px;
+
     background: #151515;
 
-    border: 1px solid #222;
+    border:
+        1px solid #222;
 
-    min-height: 250px;
+    transition:
+        transform 0.95s ease-in-out,
+        border-color 0.95s ease-in-out,
+        box-shadow 0.95s ease-in-out;
+}
+
+.portfolio-item:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 22px 65px rgba(0, 0, 0, 0.40);
 }
 
 .portfolio-item img,
 .portfolio-item video {
     width: 100%;
 
-    height: 100%;
-
     min-height: 300px;
-
-    object-fit: cover;
 
     display: block;
+
+    object-fit: cover;
 }
 
-.portfolio-placeholder {
-    min-height: 300px;
+
+/* FOTO DESKTOP */
+
+.portfolio-item img {
+    filter:
+        grayscale(100%);
+
+    cursor: zoom-in;
+
+    transition:
+        filter 1.45s ease-in-out,
+        transform 1.05s ease-in-out;
+}
+
+.portfolio-item:hover img {
+    filter:
+        grayscale(0%);
+
+    transform:
+        scale(1.018);
+}
+
+.portfolio-title {
+    margin:
+        14px 4px 8px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   IMAGE LIGHTBOX
+========================================================= */
+
+.image-lightbox {
+    position: fixed;
+
+    inset: 0;
 
     display: flex;
 
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
-    flex-direction: column;
+    padding: 40px;
 
-    color: #555;
+    background:
+        rgba(0, 0, 0, 0.95);
 
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease-in-out;
+
+    z-index: 99999;
+}
+
+.image-lightbox.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.image-lightbox-content {
+    position: relative;
+
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.image-lightbox-content img {
+    display: block;
+
+    max-width: 90vw;
+    max-height: 85vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    filter: none !important;
+}
+
+.image-lightbox-close {
+    position: absolute;
+
+    top: -45px;
+    right: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 32px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
     text-align: center;
+
+    background: #080808;
 }
 
-.portfolio-placeholder strong {
-    color: #aaa;
+.contact-inner {
+    max-width: 850px;
 
-    margin-bottom: 8px;
+    margin: 0 auto;
+}
+
+.contact-inner > p:not(.eyebrow) {
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    color: #888;
+
+    line-height: 1.7;
+}
+
+.contact-button {
+    margin-top: 25px;
+
+    background: #ffffff;
+
+    color: #000000;
+}
+
+.contact-details {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    margin-top: 60px;
+
+    color: #666;
+
+    font-size: 12px;
 }
 
 
-/* =========================================
+/* =========================================================
    FOOTER
-========================================= */
+========================================================= */
 
 footer {
-    padding: 30px 8%;
+    padding:
+        30px
+        8%;
 
-    border-top: 1px solid #181818;
+    text-align: center;
+
+    border-top:
+        1px solid #181818;
 
     color: #555;
 
     font-size: 11px;
-
-    text-align: center;
 }
 
 
-/* =========================================
-   MOBIEL
-========================================= */
+/* =========================================================
+   MOBIEL / TABLET
+========================================================= */
+
+.mobile-hero-logo {
+    display: none;
+}
+
 
 @media (max-width: 900px) {
 
     .navbar {
-    padding: 14px 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    box-sizing: border-box;
-    gap: 10px;
-}
+        grid-template-columns: 1fr;
 
-.navbar .nav-logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
+        height: 76px;
 
-.navbar .nav-logo img {
-    width: 38px;
-    height: 38px;
-    object-fit: contain;
-    display: block;
-}
-
-.navbar nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 14px;
-    flex: 1;
-    min-width: 0;
-}
-
-.navbar nav a {
-    display: block;
-    font-size: 10px;
-    line-height: 1;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.navbar .nav-button {
-    display: none;
-}
-    .hero {
-        padding: 120px 7% 80px;
+        padding:
+            0
+            5%;
     }
 
-    .hero h1 {
+    /*
+    Logo en contactknop uit NAVBAR op mobiel.
+    */
+
+    .nav-logo,
+    .nav-button {
+        display: none;
+    }
+
+
+    /*
+    Navigatie echt midden.
+    */
+
+    .navbar nav {
+        grid-column: 1;
+
+        justify-self: center;
+
+        gap: 19px;
+    }
+
+    .navbar nav a {
+        font-size: 10px;
+    }
+
+
+    .hero {
+        padding:
+            115px
+            7%
+            75px;
+    }
+
+
+    .cinematic-title {
+        font-size:
+            clamp(52px, 15vw, 76px);
+
         letter-spacing: -3px;
     }
-.camera-3d {
-    position: absolute;
-    width: 430px;
-    height: 300px;
-    right: 3%;
-    top: 50%;
-    transform: translateY(-50%);
-    perspective: 1000px;
-    opacity: 0.95;
-    animation: cameraFloat 6s ease-in-out infinite;
 
-.mobile-hero-logo {
-    display: block;
-    position: absolute;
-    top: 18px;
-    right: 6%;
-    width: 55px;
-    z-index: 10;
-}
 
-.mobile-hero-logo img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-}
+    /*
+    Klein logo rechts van TVR VISUALS.
+    */
 
-.camera-body {
-    position: absolute;
-    width: 310px;
-    height: 205px;
-    right: 40px;
-    top: 45px;
-    border-radius: 28px;
-    background: linear-gradient(
-        145deg,
-        #252525 0%,
-        #111111 45%,
-        #080808 100%
-    );
-    border: 1px solid #383838;
-    box-shadow:
-        25px 30px 50px rgba(0, 0, 0, 0.65),
-        inset 2px 2px 8px rgba(255, 255, 255, 0.06),
-        inset -5px -5px 15px rgba(0, 0, 0, 0.8);
-    transform: rotateY(-12deg) rotateX(3deg);
-    transform-style: preserve-3d;
-}
+    .mobile-hero-logo {
+        display: block;
 
-/* Bovenkant van de camera */
-.camera-top {
-    position: absolute;
-    width: 105px;
-    height: 24px;
-    top: -18px;
-    left: 48px;
-    border-radius: 7px 7px 3px 3px;
-    background: linear-gradient(145deg, #292929, #101010);
-    border: 1px solid #3a3a3a;
-}
+        position: absolute;
 
-/* Grip aan de rechterkant */
-.camera-grip {
-    position: absolute;
-    width: 58px;
-    height: 155px;
-    right: -35px;
-    top: 28px;
-    border-radius: 8px 18px 18px 8px;
-    background: linear-gradient(
-        90deg,
-        #171717,
-        #090909
-    );
-    border: 1px solid #303030;
-    transform: rotate(5deg);
-}
+        top: 145px;
+        right: 8%;
 
-/* Mount bovenop */
-.camera-mount {
-    position: absolute;
-    width: 38px;
-    height: 18px;
-    top: -29px;
-    left: 82px;
-    border-radius: 4px;
-    background: #0d0d0d;
-    border: 1px solid #353535;
-}
+        width: 58px;
 
-/* Grote lens */
-.camera-lens {
-    position: absolute;
-    width: 145px;
-    height: 145px;
-    left: -58px;
-    top: 28px;
-    border-radius: 50%;
-    background:
-        radial-gradient(
-            circle at 38% 35%,
-            #555 0%,
-            #202020 12%,
-            #090909 38%,
-            #151515 60%,
-            #050505 100%
-        );
-    border: 7px solid #292929;
-    box-shadow:
-        0 0 0 2px #454545,
-        0 15px 25px rgba(0, 0, 0, 0.6),
-        inset 5px 5px 12px rgba(255, 255, 255, 0.08),
-        inset -8px -8px 15px rgba(0, 0, 0, 0.8);
-}
+        z-index: 20;
 
-/* Subtiele lensring */
-.ring-one {
-    position: absolute;
-    width: 125px;
-    height: 125px;
-    left: -48px;
-    top: 38px;
-    border-radius: 50%;
-    border: 2px solid #4a4a4a;
-    opacity: 0.55;
-}
-
-.ring-two {
-    position: absolute;
-    width: 105px;
-    height: 105px;
-    left: -38px;
-    top: 48px;
-    border-radius: 50%;
-    border: 1px solid #686868;
-    opacity: 0.3;
-}
-
-/* Klein detail op de body */
-.camera-detail {
-    position: absolute;
-    width: 42px;
-    height: 8px;
-    right: 25px;
-    top: 22px;
-    border-radius: 4px;
-    background: #3a3a3a;
-    opacity: 0.7;
-}
-
-@keyframes cameraFloat {
-    0%, 100% {
-        transform: translateY(-50%) translateY(0);
+        pointer-events: none;
     }
 
-    50% {
-        transform: translateY(-50%) translateY(-12px);
+    .mobile-hero-logo img {
+        width: 58px;
+        height: auto;
+
+        display: block;
+
+        object-fit: contain;
+
+        filter:
+            brightness(0)
+            invert(1);
     }
-}
+
+
+    .camera-3d {
+        right: -150px;
+
+        opacity: 0.12;
+
+        transform:
+            translateY(-50%)
+            scale(0.72);
+    }
+
+
     .service-grid {
         grid-template-columns: 1fr;
     }
 
-    .showcase,
-    .about {
+
+    .showcase {
         grid-template-columns: 1fr;
 
-        gap: 60px;
+        gap: 50px;
     }
+
+
+    .showcase-visual {
+        min-height: 420px;
+    }
+
+
+    .tvr-3d-object {
+        width: 360px;
+        height: 360px;
+    }
+
+
+    .tvr-3d-sphere {
+        width: 145px;
+        height: 145px;
+    }
+
+
+    .tvr-orbit {
+        width: 280px;
+        height: 110px;
+    }
+
+
+    .tvr-orbit-2 {
+        width: 260px;
+        height: 105px;
+    }
+
+
+    .tvr-orbit-3 {
+        width: 245px;
+        height: 98px;
+    }
+
+
+    .tvr-logo-3d {
+        width: 110px;
+        height: 110px;
+    }
+
+
+    .about-section {
+        width:
+            calc(100% - 40px);
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+
+        padding:
+            100px
+            0;
+    }
+
 
     .services,
-    .about,
     .showcase,
     .contact {
-        padding: 100px 7%;
+        padding:
+            100px
+            7%;
     }
 
-    .about-image {
-        min-height: 400px;
-    }
 
     .portfolio-grid {
         grid-template-columns: 1fr;
+
+        gap: 24px;
     }
 
+
     .modal-window {
-        padding: 30px 20px;
+        padding:
+            30px
+            20px;
     }
+
 
     .modal-header h2 {
         font-size: 42px;
     }
+
 
     .contact-details {
         flex-direction: column;
@@ -1181,1977 +1840,105 @@ footer {
         gap: 15px;
     }
 
-}
-
-@media (max-width: 500px) {
 
     .hero-buttons {
         flex-direction: column;
     }
 
-    .button {
-        text-align: center;
-    }
 
-}/* Foto tijdens shoot */
-.about-work-image {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    display: block;
-    margin: 30px auto 0;
-    border-radius: 18px;
-    object-fit: cover;
-}
-.quality-note {
-    margin-top: 12px;
-    font-size: 12px;
-    line-height: 1.5;
-    color: #777;
-}
-/* Portfolio video titels */
+    /*
+    BELANGRIJK:
+    PORTFOLIO FOTO'S OP TELEFOON ALTIJD KLEUR.
+    */
 
-.portfolio-item {
-    height: auto;
-    overflow: visible;
-    padding-bottom: 10px;
-}
+    .portfolio-item img {
+        filter:
+            grayscale(0%) !important;
 
-.portfolio-title {
-    margin: 12px 0 0;
-    font-size: 16px;
-    font-weight: 500;
-    color: #ffffff;
-    line-height: 1.4;
-}
-
-.portfolio-item video {
-    display: block;
-    width: 100%;
-}
-
-.portfolio-title {
-    margin: 12px 0 24px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #ffffff;
-    line-height: 1.4;
-}
-/* ================================
-   VIDEO LIGHTBOX
-================================ */
-
-.video-lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.92);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 40px;
-}
-
-.video-lightbox.hidden {
-    display: none;
-}
-
-.video-lightbox-content {
-    position: relative;
-    width: min(1200px, 95vw);
-    max-height: 90vh;
-}
-
-.video-lightbox video {
-    width: 100%;
-    max-height: 85vh;
-    display: block;
-    background: #000;
-}
-
-.video-lightbox-close {
-    position: absolute;
-    top: -45px;
-    right: 0;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 32px;
-    cursor: pointer;
-    line-height: 1;
-}
-
-.video-lightbox-close:hover {
-    opacity: 0.65;
-}
-/* =================================
-   MOBIELE PORTFOLIO WEERGAVE
-================================= */
-
-@media (max-width: 768px) {
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .portfolio-item video {
-        width: 100%;
-    }
-
-    .portfolio-title {
-        font-size: 18px;
-        margin-top: 10px;
-    }
-
-}/* IMAGE LIGHTBOX */
-
-.portfolio-image {
-    width: 100%;
-    display: block;
-    cursor: pointer;
-}
-
-.image-lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 40px;
-
-    background: rgba(0, 0, 0, 0.95);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition: opacity 0.2s ease;
-}
-
-.image-lightbox.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.image-lightbox img {
-    max-width: 95vw;
-    max-height: 90vh;
-
-    object-fit: contain;
-
-    display: block;
-}
-
-.image-lightbox-close {
-    position: absolute;
-
-    top: 30px;
-    right: 35px;
-
-    background: none;
-    border: none;
-
-    color: #fff;
-
-    font-size: 40px;
-    line-height: 1;
-
-    cursor: pointer;
-
-    z-index: 2;
-}
-
-.image-lightbox-close:hover {
-    opacity: 0.65;
-}
-/* FOTO LIGHTBOX */
-
-.image-lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    background: rgba(0, 0, 0, 0.94);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-}
-
-.image-lightbox-content {
-    position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
-}
-
-.image-lightbox-content img {
-    display: block;
-    max-width: 90vw;
-    max-height: 85vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-.image-lightbox-close {
-    position: absolute;
-    top: -45px;
-    right: 0;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 32px;
-    line-height: 1;
-    cursor: pointer;
-}
-
-.image-lightbox-close:hover {
-    opacity: 0.65;
-}
-/* =========================================
-   TVR VISUALS — 3D LOGO HERO
-   ========================================= */
-
-.showcase-visual {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 620px;
-    perspective: 1200px;
-}
-
-/* 3D scene */
-
-.logo-3d-scene {
-    position: relative;
-    width: 520px;
-    height: 520px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transform-style: preserve-3d;
-
-    animation: logoFloat 6s ease-in-out infinite;
-}
-
-/* Centrale bol */
-
-.logo-orb {
-    position: relative;
-
-    width: 250px;
-    height: 250px;
-
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            rgba(255,255,255,0.12),
-            rgba(255,255,255,0.025) 35%,
-            rgba(0,0,0,0.9) 75%
-        );
-
-    border: 1px solid rgba(255,255,255,0.12);
-
-    box-shadow:
-        0 0 80px rgba(255,255,255,0.04),
-        inset 0 0 50px rgba(255,255,255,0.025);
-
-    transform-style: preserve-3d;
-
-    z-index: 5;
-}
-
-/* Licht over de bol */
-
-.logo-glow {
-    position: absolute;
-
-    width: 100px;
-    height: 100px;
-
-    top: 25px;
-    left: 35px;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.08);
-
-    filter: blur(30px);
-
-    pointer-events: none;
-}
-
-/* Logo */
-
-.logo-3d {
-    position: relative;
-
-    width: 145px;
-    height: auto;
-
-    z-index: 3;
-
-    opacity: 0.95;
-
-    transform: translateZ(35px);
-
-    filter:
-        brightness(0)
-        invert(1)
-        drop-shadow(0 0 18px rgba(255,255,255,0.12));
-
-    transition: transform 0.15s ease-out;
-}
-
-/* Ringen */
-
-.logo-ring {
-    position: absolute;
-
-    border: 1px solid rgba(255,255,255,0.12);
-
-    border-radius: 50%;
-
-    transform-style: preserve-3d;
-
-    pointer-events: none;
-}
-
-/* Ring 1 */
-
-.ring-1 {
-    width: 330px;
-    height: 330px;
-
-    transform:
-        rotateX(68deg)
-        rotateY(8deg);
-
-    animation: ringRotate1 12s linear infinite;
-}
-
-/* Ring 2 */
-
-.ring-2 {
-    width: 420px;
-    height: 420px;
-
-    border-color: rgba(255,255,255,0.08);
-
-    transform:
-        rotateY(70deg)
-        rotateZ(12deg);
-
-    animation: ringRotate2 18s linear infinite reverse;
-}
-
-/* Ring 3 */
-
-.ring-3 {
-    width: 510px;
-    height: 510px;
-
-    border-color: rgba(255,255,255,0.055);
-
-    transform:
-        rotateX(70deg)
-        rotateZ(-20deg);
-
-    animation: ringRotate3 25s linear infinite;
-}
-
-/* Zwevende beweging */
-
-@keyframes logoFloat {
-
-    0%,
-    100% {
         transform:
-            translateY(0px)
-            rotateX(0deg)
-            rotateY(0deg);
+            none !important;
     }
 
-    50% {
+
+    /*
+    TVR AAN HET WERK BLIJFT ZWART-WIT OP TELEFOON.
+    */
+
+    .about-image img {
+        filter:
+            grayscale(100%) !important;
+
         transform:
-            translateY(-14px)
-            rotateX(2deg)
-            rotateY(-3deg);
-    }
-}
-
-/* Ring beweging */
-
-@keyframes ringRotate1 {
-
-    from {
-        transform:
-            rotateX(68deg)
-            rotateY(8deg)
-            rotateZ(0deg);
+            none !important;
     }
 
-    to {
-        transform:
-            rotateX(68deg)
-            rotateY(8deg)
-            rotateZ(360deg);
-    }
-}
 
-@keyframes ringRotate2 {
+    /*
+    Touchscreen hoeft niet omhoog te springen.
+    */
 
-    from {
-        transform:
-            rotateY(70deg)
-            rotateZ(12deg);
-    }
-
-    to {
-        transform:
-            rotateY(70deg)
-            rotateZ(-348deg);
-    }
-}
-
-@keyframes ringRotate3 {
-
-    from {
-        transform:
-            rotateX(70deg)
-            rotateZ(-20deg);
-    }
-
-    to {
-        transform:
-            rotateX(70deg)
-            rotateZ(340deg);
-    }
-}
-
-
-/* =========================================
-   GROTERE TVR VISUALS INTRO
-   ========================================= */
-
-.showcase-content .eyebrow {
-    font-size: 14px;
-    letter-spacing: 5px;
-    margin-bottom: 24px;
-}
-
-.showcase-content h1 {
-    font-size: clamp(64px, 7vw, 110px);
-    line-height: 0.92;
-    letter-spacing: -5px;
-}
-
-.showcase-content p {
-    max-width: 620px;
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 900px) {
-
-    .showcase-visual {
-        min-height: 430px;
-    }
-
-    .logo-3d-scene {
-        width: 380px;
-        height: 380px;
-    }
-
-    .logo-orb {
-        width: 190px;
-        height: 190px;
-    }
-
-    .logo-3d {
-        width: 110px;
-    }
-
-    .ring-1 {
-        width: 250px;
-        height: 250px;
-    }
-
-    .ring-2 {
-        width: 320px;
-        height: 320px;
-    }
-
-    .ring-3 {
-        width: 380px;
-        height: 380px;
-    }
-
-    .showcase-content h1 {
-        font-size: 58px;
-        letter-spacing: -3px;
-    }
-}
-/* =========================================================
-   TVR VISUALS — 3D LOGO HERO
-   ========================================================= */
-
-.tvr-3d-object {
-    position: relative;
-    width: 520px;
-    height: 520px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    perspective: 1000px;
-    transform-style: preserve-3d;
-
-    animation: tvr-float 7s ease-in-out infinite;
-}
-
-
-/* ---------------------------------------------------------
-   CENTRALE BOL
-   --------------------------------------------------------- */
-
-.tvr-3d-sphere {
-    position: absolute;
-
-    width: 190px;
-    height: 190px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #3a3a3a 0%,
-            #171717 25%,
-            #080808 60%,
-            #000000 100%
-        );
-
-    box-shadow:
-        inset -25px -25px 45px rgba(0, 0, 0, 0.9),
-        inset 15px 15px 30px rgba(255, 255, 255, 0.04),
-        0 0 70px rgba(255, 255, 255, 0.035);
-
-    transform: translateZ(-20px);
-
-    opacity: 0.95;
-}
-
-
-/* ---------------------------------------------------------
-   RINGEN
-   --------------------------------------------------------- */
-
-.tvr-orbit {
-    position: absolute;
-
-    width: 360px;
-    height: 145px;
-
-    border: 1px solid rgba(255, 255, 255, 0.13);
-
-    border-radius: 50%;
-
-    transform-style: preserve-3d;
-
-    pointer-events: none;
-}
-
-
-/* Ring 1 — horizontaal */
-/* =========================================================
-   TVR ORBITS — DUIDELIJK ZICHTBARE BEWEGING
-   ========================================================= */
-
-.tvr-orbit-1 {
-    transform: rotateX(68deg) rotateZ(0deg);
-    animation: tvr-orbit-1 10s linear infinite;
-}
-
-.tvr-orbit-2 {
-    width: 340px;
-    height: 135px;
-
-    border-color: rgba(255, 255, 255, 0.10);
-
-    transform: rotateX(68deg) rotateY(55deg);
-    animation: tvr-orbit-2 14s linear infinite;
-}
-
-.tvr-orbit-3 {
-    width: 320px;
-    height: 125px;
-
-    border-color: rgba(255, 255, 255, 0.08);
-
-    transform: rotateX(68deg) rotateY(-55deg);
-    animation: tvr-orbit-3 18s linear infinite;
-}
-
-
-/* ---------------------------------------------------------
-   ANIMATIES
-   --------------------------------------------------------- */
-
-@keyframes tvr-orbit-1 {
-    from {
-        transform:
-            rotateX(68deg)
-            rotateZ(0deg);
-    }
-
-    to {
-        transform:
-            rotateX(68deg)
-            rotateZ(360deg);
-    }
-}
-
-
-@keyframes tvr-orbit-2 {
-    from {
-        transform:
-            rotateX(68deg)
-            rotateY(55deg)
-            rotateZ(0deg);
-    }
-
-    to {
-        transform:
-            rotateX(68deg)
-            rotateY(55deg)
-            rotateZ(-360deg);
-    }
-}
-
-
-@keyframes tvr-orbit-3 {
-    from {
-        transform:
-            rotateX(68deg)
-            rotateY(-55deg)
-            rotateZ(0deg);
-    }
-
-    to {
-        transform:
-            rotateX(68deg)
-            rotateY(-55deg)
-            rotateZ(360deg);
-    }
-}
-
-
-/* ---------------------------------------------------------
-   TVR LOGO
-   --------------------------------------------------------- */
-
-.tvr-logo-3d {
-    position: absolute;
-
-    width: 150px;
-    height: 150px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 10;
-
-    transform: translateZ(55px);
-
-    animation: tvr-logo-float 5s ease-in-out infinite;
-}
-
-
-.tvr-logo-3d img {
-    width: 100%;
-    height: auto;
-
-    display: block;
-
-    object-fit: contain;
-
-    filter:
-        drop-shadow(0 0 12px rgba(255, 255, 255, 0.12))
-        drop-shadow(0 0 35px rgba(255, 255, 255, 0.04));
-}
-
-
-/* ---------------------------------------------------------
-   SUBTIELE GLOW ACHTER HET LOGO
-   --------------------------------------------------------- */
-
-.tvr-logo-3d::before {
-    content: "";
-
-    position: absolute;
-
-    width: 110px;
-    height: 110px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.025);
-
-    filter: blur(25px);
-
-    z-index: -1;
-}
-
-
-/* ---------------------------------------------------------
-   ZWEVEND EFFECT
-   --------------------------------------------------------- */
-
-@keyframes tvr-float {
-
-    0% {
-        transform: translateY(0px) rotateX(0deg);
-    }
-
-    50% {
-        transform: translateY(-10px) rotateX(2deg);
-    }
-
-    100% {
-        transform: translateY(0px) rotateX(0deg);
-    }
-}
-
-
-@keyframes tvr-logo-float {
-
-    0% {
-        transform: translateZ(55px) translateY(0px);
-    }
-
-    50% {
-        transform: translateZ(70px) translateY(-5px);
-    }
-
-    100% {
-        transform: translateZ(55px) translateY(0px);
-    }
-}
-
-
-/* ---------------------------------------------------------
-   RING ANIMATIES
-   --------------------------------------------------------- */
-
-@keyframes tvr-orbit-1 {
-
-    from {
-        transform:
-            rotateX(68deg)
-            rotateZ(0deg);
-    }
-
-    to {
-        transform:
-            rotateX(68deg)
-            rotateZ(360deg);
-    }
-}
-
-
-@keyframes tvr-orbit-2 {
-
-    from {
-        transform:
-            rotateX(68deg)
-            rotateY(55deg)
-            rotateZ(0deg);
-    }
-
-    to {
-        transform:
-            rotateX(68deg)
-            rotateY(55deg)
-            rotateZ(-360deg);
-    }
-}
-
-
-@keyframes tvr-orbit-3 {
-
-    from {
-        transform:
-            rotateX(68deg)
-            rotateY(-55deg)
-            rotateZ(0deg);
-    }
-
-    to {
-        transform:
-            rotateX(68deg)
-            rotateY(-55deg)
-            rotateZ(360deg);
-    }
-}
-
-
-/* ---------------------------------------------------------
-   MUISBEWEGING / HOVER
-   --------------------------------------------------------- */
-
-.tvr-3d-object {
-    transition:
-        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-
-/* ---------------------------------------------------------
-   MOBIEL
-   --------------------------------------------------------- */
-
-@media (max-width: 900px) {
-
-    .tvr-3d-object {
-        width: 380px;
-        height: 380px;
-    }
-
-    .tvr-3d-sphere {
-        width: 145px;
-        height: 145px;
-    }
-
-    .tvr-orbit {
-        width: 280px;
-        height: 110px;
-    }
-
-    .tvr-orbit-2 {
-        width: 265px;
-        height: 105px;
-    }
-
-    .tvr-orbit-3 {
-        width: 250px;
-        height: 100px;
-    }
-
-    .tvr-logo-3d {
-        width: 115px;
-        height: 115px;
-    }
-}
-
-
-/* ---------------------------------------------------------
-   REDUCE MOTION
-   --------------------------------------------------------- */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .tvr-3d-object,
-    .tvr-logo-3d,
-    .tvr-orbit-1,
-    .tvr-orbit-2,
-    .tvr-orbit-3 {
-        animation: none;
-    }
-}
-/* =====================================================
-   TVR VISUALS - EXTRA 3D BEWEGING
-   ===================================================== */
-
-
-/* De centrale bol beweegt heel subtiel mee */
-.tvr-3d-sphere {
-    animation: tvr-sphere-pulse 5s ease-in-out infinite;
-    will-change: transform, opacity;
-}
-
-/* Complete 3D-object zweeft rustig op en neer */
-@keyframes tvr-float {
-    0% {
-        transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
-    }
-
-    25% {
-        transform: translate3d(0, -8px, 0) rotateX(1deg) rotateY(2deg);
-    }
-
-    50% {
-        transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
-    }
-
-    75% {
-        transform: translate3d(0, 7px, 0) rotateX(-1deg) rotateY(-2deg);
-    }
-
-    100% {
-        transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
-    }
-}
-
-/* Heel subtiele licht-/dieptebeweging van de bol */
-@keyframes tvr-sphere-pulse {
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.025);
-    }
-}
-/* =====================================================
-   TVR VISUALS — CINEMATIC TEXT ANIMATIONS
-   ===================================================== */
-
-.showcase-text {
-    animation: tvr-text-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.showcase-text p {
-    animation: tvr-text-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
-}
-
-.showcase-text .text-link {
-    animation: tvr-text-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
-}
-
-@keyframes tvr-text-in {
-    from {
-        opacity: 0;
-        transform: translateY(35px);
-        filter: blur(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
-/* =====================================================
-   TVR VISUALS — PREMIUM CARD HOVER
-   ===================================================== */
-
-.service-card,
-.portfolio-card,
-.portfolio-item {
-    transition:
-        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.5s ease,
-        border-color 0.5s ease;
-}
-
-.service-card:hover,
-.portfolio-card:hover,
-.portfolio-item:hover {
-    transform: translateY(-8px);
-
-    border-color: rgba(255, 255, 255, 0.18);
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.45),
-        0 0 35px rgba(255, 255, 255, 0.035);
-}
-/* =====================================================
-   TVR VISUALS — CINEMATIC HERO TITLE
-   ===================================================== */
-
-.cinematic-title {
-    overflow: hidden;
-}
-
-.cinematic-title span {
-    display: block;
-
-    opacity: 0;
-    transform: translateY(70px);
-
-    filter: blur(10px);
-
-    animation:
-        cinematic-title-in 1.2s cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
-}
-
-.cinematic-title span:nth-child(1) {
-    animation-delay: 0.15s;
-}
-
-.cinematic-title span:nth-child(2) {
-    animation-delay: 0.35s;
-}
-
-
-@keyframes cinematic-title-in {
-
-    0% {
-        opacity: 0;
-        transform: translateY(70px);
-        filter: blur(10px);
-    }
-
-    60% {
-        opacity: 1;
-        filter: blur(2px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
-/* =========================================
-   FIX CINEMATIC HERO TEKST
-   ========================================= */
-
-.cinematic-title {
-    color: #ffffff !important;
-    overflow: visible !important;
-    line-height: 1.08 !important;
-    padding-bottom: 0.08em;
-}
-
-/* Beide tekstregels helder zichtbaar */
-.cinematic-title span {
-    display: block;
-    color: #ffffff !important;
-    line-height: 1.08 !important;
-}
-
-/* Fade-in blijft behouden */
-.cinematic-title span {
-    opacity: 0;
-    transform: translateY(70px);
-    filter: blur(10px);
-
-    animation: cinematic-title-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-/* Eerste regel */
-.cinematic-title span:nth-child(1) {
-    animation-delay: 0.15s;
-}
-
-/* Tweede regel */
-.cinematic-title span:nth-child(2) {
-    animation-delay: 0.35s;
-}
-
-/* Cinematic fade-in */
-@keyframes cinematic-title-in {
-
-    0% {
-        opacity: 0;
-        transform: translateY(70px);
-        filter: blur(10px);
-    }
-
-    60% {
-        opacity: 1;
-        filter: blur(2px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
-
-
-/* =========================================
-   ZEKER WETEN DAT DE "g" NIET WORDT AFGEKNIPT
-   ========================================= */
-
-.showcase-text {
-    overflow: visible !important;
-}
-
-.showcase-text h1,
-.showcase-text .cinematic-title {
-    overflow: visible !important;
-    height: auto !important;
-    max-height: none !important;
-}
-
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-
-@media (max-width: 900px) {
-
-    .cinematic-title {
-        line-height: 1.05 !important;
-        padding-bottom: 0.12em;
-    }
-
-    .cinematic-title span {
-        line-height: 1.05 !important;
-    }
-}
-/* =========================================
-   CINEMATIC CARD HOVER
-   ========================================= */
-
-.showcase-card,
-.service-card,
-.portfolio-card {
-    position: relative;
-    overflow: hidden;
-    transition:
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        border-color 0.45s ease,
-        box-shadow 0.45s ease;
-    will-change: transform;
-}
-
-
-/* Subtiele lichtlaag */
-.showcase-card::before,
-.service-card::before,
-.portfolio-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-            rgba(255, 255, 255, 0.10),
-            transparent 35%
-        );
-
-    opacity: 0;
-    transition: opacity 0.45s ease;
-
-    pointer-events: none;
-    z-index: 1;
-}
-
-
-/* Hover */
-.showcase-card:hover,
-.service-card:hover,
-.portfolio-card:hover {
-    transform: translateY(-8px) scale(1.015);
-
-    border-color: rgba(255, 255, 255, 0.18);
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.35),
-        0 0 40px rgba(255, 255, 255, 0.035);
-}
-
-
-.showcase-card:hover::before,
-.service-card:hover::before,
-.portfolio-card:hover::before {
-    opacity: 1;
-}
-
-
-/* Inhoud boven de glow */
-.showcase-card > *,
-.service-card > *,
-.portfolio-card > * {
-    position: relative;
-    z-index: 2;
-}
-
-
-/* =========================================
-   AFBEELDING / VIDEO IN KAART
-   ========================================= */
-
-.showcase-card img,
-.showcase-card video,
-.service-card img,
-.service-card video,
-.portfolio-card img,
-.portfolio-card video {
-    transition:
-        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 0.5s ease;
-}
-
-
-.showcase-card:hover img,
-.showcase-card:hover video,
-.service-card:hover img,
-.service-card:hover video,
-.portfolio-card:hover img,
-.portfolio-card:hover video {
-    transform: scale(1.04);
-    filter: brightness(1.08);
-}
-
-
-/* =========================================
-   MOBIEL
-   ========================================= */
-
-@media (max-width: 768px) {
-
-    .showcase-card:hover,
     .service-card:hover,
-    .portfolio-card:hover {
-        transform: translateY(-4px);
-    }
-
-    .showcase-card:hover img,
-    .showcase-card:hover video,
-    .service-card:hover img,
-    .service-card:hover video,
-    .portfolio-card:hover img,
-    .portfolio-card:hover video {
-        transform: scale(1.02);
-    }
-}
-/* =========================================================
-   PREMIUM CARD HOVER — TVR VISUALS
-   ========================================================= */
-
-.service-card {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    transition:
-        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-        border-color 0.6s ease,
-        box-shadow 0.6s ease;
-}
-
-/* Lichtlaag over de HELE kaart */
-.service-card::before {
-    content: "";
-    position: absolute;
-    inset: -30%;
-    z-index: -1;
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(255, 255, 255, 0.10) 0%,
-            rgba(255, 255, 255, 0.045) 18%,
-            rgba(255, 255, 255, 0.015) 35%,
-            transparent 60%
-        );
-
-    opacity: 0;
-    transform: scale(0.8);
-
-    transition:
-        opacity 0.7s ease,
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* Subtiele rand */
-.service-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-
-    border: 1px solid rgba(255, 255, 255, 0.00);
-
-    transition:
-        border-color 0.6s ease,
-        box-shadow 0.6s ease;
-}
-
-
-/* HOVER */
-.service-card:hover {
-    transform: translateY(-6px);
-
-    border-color: rgba(255, 255, 255, 0.18);
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.35),
-        0 0 50px rgba(255, 255, 255, 0.025);
-}
-
-.service-card:hover::before {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.service-card:hover::after {
-    border-color: rgba(255, 255, 255, 0.14);
-}
-
-
-/* =========================================================
-   CONTENT BOVEN DE GLOW HOUDEN
-   ========================================================= */
-
-.service-card > * {
-    position: relative;
-    z-index: 2;
-}
-
-
-/* =========================================================
-   EXTRA PREMIUM — TEKST REAGEERT HEEL LICHT
-   ========================================================= */
-
-.service-card h3,
-.service-card p,
-.service-card a {
-    transition:
-        color 0.5s ease,
-        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.service-card:hover h3 {
-    transform: translateX(2px);
-}
-
-.service-card:hover a {
-    transform: translateX(4px);
-}
-/* =========================================================
-   TVR VISUALS — CINEMATIC BUTTON HOVER
-   ========================================================= */
-
-.hero-actions a,
-.cta-button,
-.btn {
-    position: relative;
-    transition:
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.45s ease,
-        background-color 0.45s ease,
-        border-color 0.45s ease;
-}
-
-/* Hoofdknop */
-.hero-actions a:first-child:hover,
-.cta-button:hover,
-.btn:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 10px 30px rgba(255, 255, 255, 0.08),
-        0 0 25px rgba(255, 255, 255, 0.06);
-}
-
-/* Witte knop */
-.hero-actions a:first-child:hover {
-    background: #ffffff;
-    color: #000000;
-}
-
-/* Donkere / outline knop */
-.hero-actions a:nth-child(2):hover {
-    border-color: rgba(255, 255, 255, 0.35);
-
-    box-shadow:
-        0 10px 30px rgba(255, 255, 255, 0.05),
-        0 0 20px rgba(255, 255, 255, 0.04);
-}
-
-/* Subtiele lichtlaag */
-.hero-actions a::after,
-.cta-button::after,
-.btn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    border-radius: inherit;
-
-    background: linear-gradient(
-        120deg,
-        transparent 20%,
-        rgba(255, 255, 255, 0.10) 50%,
-        transparent 80%
-    );
-
-    opacity: 0;
-    transform: translateX(-100%);
-
-    transition:
-        opacity 0.4s ease,
-        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.hero-actions a:hover::after,
-.cta-button:hover::after,
-.btn:hover::after {
-    opacity: 1;
-    transform: translateX(100%);
-}
-/* =========================================================
-   HEADER CTA — SUBTIELE HOVER
-   ========================================================= */
-
-header .cta-button:hover,
-.nav-cta:hover {
-    background: transparent !important;
-    color: #ffffff !important;
-
-    border-color: rgba(255, 255, 255, 0.28) !important;
-
-    box-shadow:
-        0 0 18px rgba(255, 255, 255, 0.035) !important;
-
-    transform: translateY(-1px) !important;
-}
-/* =========================================
-   NAV BUTTON - subtiele premium hover
-   ========================================= */
-
-.navbar .nav-button {
-    background: transparent;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    transition:
-        background 0.35s ease,
-        border-color 0.35s ease,
-        transform 0.35s ease,
-        color 0.35s ease;
-}
-
-.navbar .nav-button:hover {
-    background: rgba(255, 255, 255, 0.07) !important;
-    color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.28) !important;
-    transform: translateY(-1px);
-}
-/* =========================================
-   ABOUT / OVER TVR VISUALS
-========================================= */
-
-.about-section {
-    width: min(1280px, calc(100% - 80px));
-    margin: 0 auto;
-    min-height: 720px;
-
-    display: grid;
-    grid-template-columns: 1fr 0.9fr;
-    align-items: center;
-    gap: 110px;
-
-    padding: 140px 0;
-}
-
-
-/* FOTO */
-
-.about-image-wrap {
-    position: relative;
-}
-
-.about-image {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 0.88;
-    overflow: hidden;
-
-    background: #111;
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 2px;
-
-    transition:
-        transform 0.7s cubic-bezier(.16, 1, .3, 1),
-        border-color 0.5s ease,
-        box-shadow 0.7s ease;
-}
-
-.about-image::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.08),
-            transparent 35%,
-            transparent 70%,
-            rgba(255,255,255,0.03)
-        );
-
-    pointer-events: none;
-}
-
-.about-image img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition:
-        transform 1.2s cubic-bezier(.16, 1, .3, 1),
-        filter 0.8s ease;
-}
-
-
-/* Subtiele beweging wanneer je over de foto gaat */
-
-.about-image:hover {
-    transform: translateY(-6px);
-
-    border-color: rgba(255, 255, 255, 0.16);
-
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.45);
-}
-
-.about-image:hover img {
-    transform: scale(1.025);
-}
-
-
-/* TEKST */
-
-.about-content {
-    max-width: 570px;
-}
-
-.about-label {
-    display: block;
-
-    margin-bottom: 24px;
-
-    font-size: 11px;
-    font-weight: 500;
-
-    letter-spacing: 0.28em;
-
-    color: rgba(255, 255, 255, 0.42);
-}
-
-
-.about-content h2 {
-    margin: 0 0 38px;
-
-    font-size: clamp(52px, 5vw, 78px);
-    line-height: 0.95;
-    letter-spacing: -0.055em;
-
-    font-weight: 600;
-
-    color: #fff;
-}
-
-.about-content h2 span {
-    color: rgba(255, 255, 255, 0.38);
-}
-
-
-.about-content p {
-    max-width: 520px;
-
-    margin: 0 0 24px;
-
-    font-size: 16px;
-    line-height: 1.8;
-
-    color: rgba(255, 255, 255, 0.52);
-}
-
-
-/* LOGO */
-
-.about-logo {
-    margin-top: 55px;
-
-    width: 72px;
-    height: 72px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    opacity: 0.42;
-
-    transition:
-        opacity 0.5s ease,
-        transform 0.6s cubic-bezier(.16, 1, .3, 1),
-        filter 0.5s ease;
-}
-
-.about-logo img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-}
-
-.about-logo:hover {
-    opacity: 0.85;
-
-    transform: translateY(-4px) scale(1.04);
-
-    filter: brightness(1.2);
-}
-
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 900px) {
-
-    .about-section {
-        width: min(100% - 40px, 650px);
-
-        grid-template-columns: 1fr;
-
-        gap: 60px;
-
-        padding: 100px 0;
-    }
-
-    .about-content {
-        max-width: 100%;
-    }
-
-    .about-content h2 {
-        font-size: clamp(48px, 12vw, 70px);
-    }
-
-    .about-logo {
-        margin-top: 40px;
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    .about-section {
-        width: calc(100% - 32px);
-        padding: 80px 0;
-    }
-
-    .about-image {
-        aspect-ratio: 0.95;
-    }
-
-    .about-content p {
-        font-size: 15px;
-    }
-}
-/* =========================
-   NAVIGATIE
-========================= */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 82px;
-
-    display: flex;
-    align-items: center;
-
-    padding: 0 5.5vw;
-
-    z-index: 1000;
-
-    background: rgba(5, 5, 5, 0.72);
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* NAVIGATIE MIDDEN */
-
-.navbar nav {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;
-    align-items: center;
-
-    gap: 38px;
-}
-
-.navbar nav a {
-    color: rgba(255, 255, 255, 0.72);
-
-    text-decoration: none;
-
-    font-size: 14px;
-    font-weight: 400;
-
-    transition:
-        color 0.25s ease,
-        transform 0.25s ease;
-}
-
-.navbar nav a:hover {
-    color: rgba(255, 255, 255, 1);
-}
-
-
-/* CONTACT KNOP RECHTS */
-
-.nav-button {
-    margin-left: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 42px;
-    padding: 0 20px;
-
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 999px;
-
-    background: rgba(255, 255, 255, 0.025);
-
-    color: rgba(255, 255, 255, 0.85);
-
-    text-decoration: none;
-
-    font-size: 13px;
-    font-weight: 400;
-
-    transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        color 0.25s ease;
-}
-
-
-/* ZACHTER BIJ HOVER, NIET SPIERWIT */
-
-.nav-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-/* FOTO'S STANDAARD ZWART-WIT */
-.portfolio-item img {
-    filter: grayscale(100%);
-    transition: filter 0.5s ease, transform 0.5s ease;
-}
-
-/* DESKTOP: KLEUR BIJ HOVER */
-@media (min-width: 769px) {
-    .portfolio-item:hover img {
-        filter: grayscale(0%);
-    }
-}
-
-/* TELEFOON/TABLET: ALTIJD KLEUR */
-@media (max-width: 768px) {
-    .portfolio-item img {
-        filter: grayscale(0%);
-    }
-}
-/* ========================================
-   PORTFOLIO FOTO HOVER EFFECT
-   ======================================== */
-
-/* Foto's standaard zwart-wit */
-.portfolio-item img {
-    filter: grayscale(100%);
-    transition: filter 0.5s ease, transform 0.5s ease;
-}
-
-/* Desktop: kleur + subtiele zoom bij hover */
-@media (min-width: 769px) {
-    .portfolio-item:hover img {
-        filter: grayscale(0%);
-        transform: scale(1.02);
-    }
-}
-
-/* Mobiel/tablet: foto's altijd in kleur */
-@media (max-width: 768px) {
-    .portfolio-item img {
-        filter: grayscale(0%);
+    .portfolio-item:hover,
+    .about-image:hover,
+    .button:hover,
+    .contact-button:hover {
         transform: none;
     }
 }
 
-/* =========================================
-   WIT TVR LOGO - HERO RECHTS
-   ========================================= */
 
-.hero-visual {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+@media (max-width: 500px) {
 
-/* TVR LOGO RECHTS IN HERO */
-.hero-visual {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
+    .navbar nav {
+        gap: 15px;
+    }
 
-/* =========================================
-   TVR LOGO IN HERO
-   ========================================= */
+    .navbar nav a {
+        font-size: 9px;
+    }
 
-.hero-visual .hero-logo {
-    width: 180px;
-    height: auto;
-    display: block;
-    position: relative;
-    z-index: 10;
+    .mobile-hero-logo {
+        top: 145px;
 
-    /* zwart logo naar wit */
-    filter: brightness(0) invert(1);
+        right: 7%;
 
-    opacity: 1;
-}
+        width: 54px;
+    }
 
-/* =========================================
-   NAVBAR - LOGO + MENU OP 1 RIJ
-   ========================================= */
+    .mobile-hero-logo img {
+        width: 54px;
+    }
 
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 90px;
-    padding: 0 6vw;
-    box-sizing: border-box;
-}
+    .hero-description {
+        font-size: 15px;
+    }
 
-/* Logo links */
-.nav-logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
+    .showcase-visual {
+        min-height: 340px;
+    }
 
-/* Menu midden */
-.navbar nav {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    margin-left: auto;
-    margin-right: 40px;
-}
+    .tvr-3d-object {
+        width: 310px;
+        height: 310px;
+    }
 
-.navbar nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
-    white-space: nowrap;
-    transition: opacity 0.2s ease;
-}
+    .tvr-orbit {
+        width: 230px;
+        height: 90px;
+    }
 
-.navbar nav a:hover {
-    opacity: 0.6;
-}
+    .tvr-orbit-2 {
+        width: 215px;
+        height: 85px;
+    }
 
-/* Contactknop rechts */
-.nav-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    .tvr-orbit-3 {
+        width: 205px;
+        height: 80px;
+    }
 
-    padding: 12px 22px;
-
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 999px;
-
-    color: #ffffff;
-    text-decoration: none;
-
-    font-size: 14px;
-    white-space: nowrap;
-
-    transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.nav-button:hover {
-    background: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-}
-/* TVR logo in navbar */
-.navbar .nav-logo {
-    display: flex;
-    align-items: center;
-    width: 52px;
-    height: 52px;
-}
-
-.navbar .nav-logo img {
-    width: 52px !important;
-    height: 52px !important;
-    max-width: 52px !important;
-    max-height: 52px !important;
-    object-fit: contain;
-    display: block;
-}
-/* ===== HELDERHEID ===== */
-
-.hero-background {
-    opacity: 1;
-}
-
-.orb {
-    opacity: 0.35;
-}
-
-.camera-3d {
-    opacity: 0.25;
-}
-
-.nav-logo img {
-    opacity: 0.75;
-}
-/* =========================================
-   TVR LOGO - FEL WIT
-   ========================================= */
-
-.navbar .nav-logo {
-    opacity: 1 !important;
-}
-
-.navbar .nav-logo img {
-    opacity: 1 !important;
-    filter: grayscale(1) brightness(0) invert(1) contrast(300%) !important;
-    mix-blend-mode: normal !important;
-}
-.mobile-hero-logo {
-    display: none;
+    .tvr-logo-3d {
+        width: 90px;
+        height: 90px;
+    }
 }

@@ -1,12 +1,12 @@
-/* =========================================
+/* =========================================================
    TVR VISUALS
-   Portfolio interactie
-========================================= */
+   MAIN.JS
+========================================================= */
 
 
-/* =========================================
+/* =========================================================
    PORTFOLIO DATA
-========================================= */
+========================================================= */
 
 const portfolioData = {
 
@@ -17,31 +17,37 @@ const portfolioData = {
         description:
             "Cinematische video's, automotive producties en andere videoprojecten.",
 
-            qualityNote:
-    "Alle producties worden in 4K-kwaliteit geleverd. De video's op deze website zijn gecomprimeerd voor online gebruik.",
+        qualityNote:
+            "Alle producties worden in 4K-kwaliteit geleverd. De video's op deze website zijn gecomprimeerd voor online gebruik.",
 
         items: [
-    {
-        type: "video",
-        src: "assets/videos/BMW 118i Website.mp4",
-        title: "BMW 118i — Cinematic Film"
-    },
-    {
-        type: "video",
-        src: "assets/videos/temerario-video-1.mp4",
-        title: "Mercedes C450 — Automotive Film"
-    },
-    {
-        type: "video",
-        src: "assets/videos/temerario-video-2.mp4",
-        title: "BMW F80 M3 — Automotive Film"
-    },
-    {
-        type: "video",
-        src: "assets/videos/temerario-video-3.mp4",
-        title: "Subaru WRX — Cinematic Film"
-    }
-],
+
+            {
+                type: "video",
+                src: "assets/videos/BMW 118i Website.mp4",
+                title: "BMW 118i — Cinematic Film"
+            },
+
+            {
+                type: "video",
+                src: "assets/videos/temerario-video-1.mp4",
+                title: "Mercedes C450 — Automotive Film"
+            },
+
+            {
+                type: "video",
+                src: "assets/videos/temerario-video-2.mp4",
+                title: "BMW F80 M3 — Automotive Film"
+            },
+
+            {
+                type: "video",
+                src: "assets/videos/temerario-video-3.mp4",
+                title: "Subaru WRX — Cinematic Film"
+            }
+
+        ]
+
     },
 
 
@@ -70,39 +76,13 @@ const portfolioData = {
                 type: "image",
                 src: "assets/images/Lamborghini Revuelto.JPG",
                 title: "Lamborghini Revuelto"
-            }, ,
-{
-    type: "image",
-    src: "assets/images/Lamborghini Temerario.JPG",
-    title: "Lamborghini Temerario"
-}
-
-        ]
-
-    },
-
-
-    social: {
-
-        title: "Social Media Content",
-
-        description:
-            "Korte video's en content gemaakt voor Instagram, TikTok en andere social platforms.",
-
-        items: [
-
-            /*
-            Hier kunnen later je verticale video's komen.
-
-            Bijvoorbeeld:
+            },
 
             {
-                type: "video",
-                src: "assets/videos/social-video-1.mp4",
-                title: "Social Media Reel"
+                type: "image",
+                src: "assets/images/Lamborghini Temerario.JPG",
+                title: "Lamborghini Temerario"
             }
-
-            */
 
         ]
 
@@ -111,15 +91,18 @@ const portfolioData = {
 };
 
 
-/* =========================================
+/* =========================================================
    ELEMENTEN
-========================================= */
+========================================================= */
 
 const serviceCards =
     document.querySelectorAll(".service-card");
 
-const modal =
+const portfolioModal =
     document.getElementById("portfolioModal");
+
+const portfolioGrid =
+    document.getElementById("portfolioGrid");
 
 const modalTitle =
     document.getElementById("modalTitle");
@@ -130,42 +113,43 @@ const modalDescription =
 const modalEyebrow =
     document.getElementById("modalEyebrow");
 
-const portfolioGrid =
-    document.getElementById("portfolioGrid");
-
-const closeButton =
+const modalClose =
     document.querySelector(".modal-close");
 
 const modalOverlay =
     document.querySelector(".modal-overlay");
 
 
-/* =========================================
-   PORTFOLIO OPENEN
-========================================= */
+/* =========================================================
+   SERVICE KAARTEN
+========================================================= */
 
 serviceCards.forEach(card => {
 
-    card.addEventListener("click", () => {
+    card.addEventListener(
+        "click",
+        () => {
 
-        const service =
-            card.dataset.service;
+            const service =
+                card.dataset.service;
 
-        openPortfolio(service);
+            openPortfolio(service);
 
-    });
+        }
+    );
 
 });
 
 
-/* =========================================
-   PORTFOLIO OPBOUWEN
-========================================= */
+/* =========================================================
+   PORTFOLIO OPENEN
+========================================================= */
 
 function openPortfolio(service) {
 
     const data =
         portfolioData[service];
+
 
     if (!data) {
         return;
@@ -182,192 +166,187 @@ function openPortfolio(service) {
         "Portfolio";
 
 
-    portfolioGrid.innerHTML = "";
+    /*
+    Oude kwaliteitsmelding verwijderen.
+    */
 
-    const qualityNote = document.createElement("div");
+    const oldQualityNote =
+        document.querySelector(
+            ".quality-note"
+        );
 
-qualityNote.className = "quality-note";
-qualityNote.textContent = data.qualityNote || "";
-
-modalDescription.insertAdjacentElement(
-    "afterend",
-    qualityNote
-);
+    if (oldQualityNote) {
+        oldQualityNote.remove();
+    }
 
 
-    /* Geen projecten */
+    /*
+    Nieuwe kwaliteitsmelding,
+    alleen wanneer aanwezig.
+    */
 
-    if (!data.items || data.items.length === 0) {
+    if (data.qualityNote) {
 
-        portfolioGrid.innerHTML = `
+        const qualityNote =
+            document.createElement("p");
 
-            <div class="portfolio-item">
+        qualityNote.className =
+            "quality-note";
 
-                <div class="portfolio-placeholder">
+        qualityNote.textContent =
+            data.qualityNote;
 
-                    <strong>
-                        Binnenkort meer werk
-                    </strong>
 
-                    <span>
-                        Nieuwe projecten worden hier toegevoegd.
-                    </span>
-
-                </div>
-
-            </div>
-
-        `;
+        modalDescription.insertAdjacentElement(
+            "afterend",
+            qualityNote
+        );
 
     }
 
 
-    /* Projecten */
+    portfolioGrid.innerHTML =
+        "";
+
 
     data.items.forEach(item => {
 
         const project =
             document.createElement("div");
 
-        project.classList.add(
-            "portfolio-item"
-        );
+        project.className =
+            "portfolio-item";
 
 
-        /* VIDEO */
+        /* ==============================
+           VIDEO
+        ============================== */
 
         if (item.type === "video") {
 
-            project.innerHTML = `
-    <video
-        controls
-        playsinline
-        preload="metadata"
-    >
-        <source
-            src="${item.src}"
-            type="video/mp4"
-        >
-        Je browser ondersteunt deze video niet.
-    </video>
+            const video =
+                document.createElement("video");
 
-    <h3 class="portfolio-title">${item.title}</h3>
-`;
+            video.controls = true;
+
+            video.playsInline = true;
+
+            video.preload =
+                "metadata";
+
+
+            const source =
+                document.createElement("source");
+
+            source.src =
+                item.src;
+
+            source.type =
+                "video/mp4";
+
+
+            video.appendChild(source);
+
+
+            const title =
+                document.createElement("h3");
+
+            title.className =
+                "portfolio-title";
+
+            title.textContent =
+                item.title;
+
+
+            project.appendChild(video);
+
+            project.appendChild(title);
 
         }
 
 
-      /* FOTO */
+        /* ==============================
+           FOTO
+        ============================== */
 
-if (item.type === "image") {
-    project.innerHTML = `
-        <img
-            class="portfolio-image"
-            src="${item.src}"
-            alt="${item.title || "TVR Visuals project"}"
-            loading="lazy"
-        >
-    `;
+        if (item.type === "image") {
 
-    const image = project.querySelector(".portfolio-image");
+            const image =
+                document.createElement("img");
 
-    image.addEventListener("click", () => {
+            image.className =
+                "portfolio-image";
 
-        const lightbox = document.createElement("div");
+            image.src =
+                item.src;
 
-        lightbox.className = "image-lightbox";
+            image.alt =
+                item.title;
 
-        lightbox.innerHTML = `
-            <div class="image-lightbox-content">
-
-                <button class="image-lightbox-close">&times;</button>
-
-                <img
-                    src="${item.src}"
-                    alt="${item.title || "TVR Visuals project"}"
-                >
-
-            </div>
-        `;
-
-        document.body.appendChild(lightbox);
-
-        // Voorkom scrollen terwijl de foto geopend is
-        document.body.style.overflow = "hidden";
-
-        // Lightbox openen
-        requestAnimationFrame(() => {
-            lightbox.classList.add("active");
-        });
-
-        const closeLightbox = () => {
-            lightbox.classList.remove("active");
-
-            setTimeout(() => {
-                lightbox.remove();
-                document.body.style.overflow = "";
-            }, 200);
-        };
-
-        // Kruisje
-        lightbox
-            .querySelector(".image-lightbox-close")
-            .addEventListener("click", closeLightbox);
-
-        // Klik naast de foto
-        lightbox.addEventListener("click", (event) => {
-            if (event.target === lightbox) {
-                closeLightbox();
-            }
-        });
-
-        // ESC
-        const escapeHandler = (event) => {
-            if (event.key === "Escape") {
-                closeLightbox();
-                document.removeEventListener("keydown", escapeHandler);
-            }
-        };
-
-        document.addEventListener("keydown", escapeHandler);
-    });
-}
+            image.loading =
+                "lazy";
 
 
-        portfolioGrid.appendChild(project);
+            image.addEventListener(
+                "click",
+                event => {
+
+                    event.stopPropagation();
+
+                    openImageLightbox(
+                        item.src,
+                        item.title
+                    );
+
+                }
+            );
+
+
+            project.appendChild(image);
+
+        }
+
+
+        portfolioGrid.appendChild(
+            project
+        );
 
     });
 
 
-    modal.classList.add("active");
+    portfolioModal.classList.add(
+        "active"
+    );
 
-    document.body.style.overflow = "hidden";
+
+    document.body.style.overflow =
+        "hidden";
 
 }
 
 
-/* =========================================
-   MODAL SLUITEN
-========================================= */
+/* =========================================================
+   PORTFOLIO SLUITEN
+========================================================= */
 
 function closePortfolio() {
 
-    modal.classList.remove("active");
+    portfolioModal.classList.remove(
+        "active"
+    );
 
-    document.body.style.overflow = "";
+
+    document.body.style.overflow =
+        "";
 
 }
 
 
-/* Klik op X */
-
-closeButton.addEventListener(
+modalClose.addEventListener(
     "click",
     closePortfolio
 );
 
-
-/* Klik buiten venster */
 
 modalOverlay.addEventListener(
     "click",
@@ -375,13 +354,161 @@ modalOverlay.addEventListener(
 );
 
 
-/* ESCAPE */
+/* =========================================================
+   FOTO LIGHTBOX
+========================================================= */
+
+function openImageLightbox(
+    imageSource,
+    imageAlt
+) {
+
+    const lightbox =
+        document.createElement("div");
+
+    lightbox.className =
+        "image-lightbox";
+
+
+    lightbox.innerHTML = `
+
+        <div class="image-lightbox-content">
+
+            <button
+                class="image-lightbox-close"
+                aria-label="Sluiten"
+            >
+                ×
+            </button>
+
+            <img
+                src="${imageSource}"
+                alt="${imageAlt}"
+            >
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(
+        lightbox
+    );
+
+
+    requestAnimationFrame(() => {
+
+        lightbox.classList.add(
+            "active"
+        );
+
+    });
+
+
+    const closeButton =
+        lightbox.querySelector(
+            ".image-lightbox-close"
+        );
+
+
+    function closeLightbox() {
+
+        lightbox.classList.remove(
+            "active"
+        );
+
+
+        setTimeout(() => {
+
+            lightbox.remove();
+
+        }, 350);
+
+    }
+
+
+    closeButton.addEventListener(
+        "click",
+        closeLightbox
+    );
+
+
+    lightbox.addEventListener(
+        "click",
+        event => {
+
+            if (event.target === lightbox) {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   TVR AAN HET WERK
+========================================================= */
+
+const aboutWorkImage =
+    document.getElementById(
+        "aboutWorkImage"
+    );
+
+
+if (aboutWorkImage) {
+
+    aboutWorkImage.addEventListener(
+        "click",
+        () => {
+
+            openImageLightbox(
+                aboutWorkImage.src,
+                aboutWorkImage.alt
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
 
 document.addEventListener(
     "keydown",
     event => {
 
-        if (event.key === "Escape") {
+        if (event.key !== "Escape") {
+            return;
+        }
+
+
+        const imageLightbox =
+            document.querySelector(
+                ".image-lightbox"
+            );
+
+
+        if (imageLightbox) {
+
+            imageLightbox.remove();
+
+            return;
+
+        }
+
+
+        if (
+            portfolioModal.classList.contains(
+                "active"
+            )
+        ) {
 
             closePortfolio();
 
@@ -390,62 +517,10 @@ document.addEventListener(
     }
 );
 
-/* ABOUT FOTO LIGHTBOX */
 
-const aboutImage = document.querySelector(".about-work-image");
-
-if (aboutImage) {
-    aboutImage.addEventListener("click", () => {
-
-        const lightbox = document.createElement("div");
-        lightbox.className = "image-lightbox";
-
-        lightbox.innerHTML = `
-            <div class="image-lightbox-content">
-                <button class="image-lightbox-close">&times;</button>
-                <img
-                    src="${aboutImage.src}"
-                    alt="${aboutImage.alt}"
-                >
-            </div>
-        `;
-
-        document.body.appendChild(lightbox);
-
-        requestAnimationFrame(() => {
-            lightbox.classList.add("active");
-        });
-
-        const closeLightbox = () => {
-            lightbox.classList.remove("active");
-
-            setTimeout(() => {
-                lightbox.remove();
-            }, 200);
-        };
-
-        lightbox
-            .querySelector(".image-lightbox-close")
-            .addEventListener("click", closeLightbox);
-
-        lightbox.addEventListener("click", (event) => {
-            if (event.target === lightbox) {
-                closeLightbox();
-            }
-        });
-
-        document.addEventListener("keydown", function escapeHandler(event) {
-            if (event.key === "Escape") {
-                closeLightbox();
-                document.removeEventListener("keydown", escapeHandler);
-            }
-        });
-    });
-}
-
-/* =========================================
+/* =========================================================
    SMOOTH SCROLL
-========================================= */
+========================================================= */
 
 document.querySelectorAll(
     'a[href^="#"]'
@@ -453,21 +528,42 @@ document.querySelectorAll(
 
     link.addEventListener(
         "click",
-        function(event) {
+        event => {
+
+            const id =
+                link.getAttribute(
+                    "href"
+                );
+
+
+            if (
+                !id ||
+                id === "#"
+            ) {
+
+                return;
+
+            }
+
 
             const target =
-                document.querySelector(
-                    this.getAttribute("href")
-                );
+                document.querySelector(id);
+
 
             if (!target) {
                 return;
             }
 
+
             event.preventDefault();
 
+
             target.scrollIntoView({
-                behavior: "smooth"
+
+                behavior: "smooth",
+
+                block: "start"
+
             });
 
         }
@@ -475,192 +571,109 @@ document.querySelectorAll(
 
 });
 
-/* =================================
-   VIDEO LIGHTBOX
-================================= */
 
-document.querySelectorAll(".portfolio-item video").forEach(video => {
+/* =========================================================
+   SUBTIELE 3D LOGO MUISBEWEGING
 
-    video.addEventListener("click", function () {
+   ALLEEN het grote 3D-logo.
+   NIET de kaarten.
+========================================================= */
 
-        const lightbox = document.createElement("div");
-        lightbox.className = "video-lightbox";
+const tvrObject =
+    document.querySelector(
+        ".tvr-3d-object"
+    );
 
-        lightbox.innerHTML = `
-            <div class="video-lightbox-content">
-                <button class="video-lightbox-close">&times;</button>
 
-                <video controls autoplay>
-                    <source src="${this.querySelector("source").src}" type="video/mp4">
-                    Je browser ondersteunt deze video niet.
-                </video>
-            </div>
-        `;
+if (
+    tvrObject &&
+    window.matchMedia(
+        "(min-width: 901px)"
+    ).matches
+) {
 
-        document.body.appendChild(lightbox);
-
-        const closeButton =
-            lightbox.querySelector(".video-lightbox-close");
-
-        closeButton.addEventListener("click", () => {
-            lightbox.remove();
-        });
-
-        lightbox.addEventListener("click", (event) => {
-            if (event.target === lightbox) {
-                lightbox.remove();
-            }
-        });
-
-        document.addEventListener("keydown", function closeWithEscape(event) {
-            if (event.key === "Escape") {
-                lightbox.remove();
-                document.removeEventListener("keydown", closeWithEscape);
-            }
-        });
-
-    });
-
-});
-
-console.log(
-    "TVR Visuals website geladen."
-);
-/* =========================================
-   TVR VISUALS — 3D LOGO MOUSE MOVEMENT
-   ========================================= */
-
-const logoScene = document.querySelector(".logo-3d-scene");
-
-if (logoScene) {
-
-    document.addEventListener("mousemove", (event) => {
-
-        const x = (event.clientX / window.innerWidth) - 0.5;
-        const y = (event.clientY / window.innerHeight) - 0.5;
-
-        const rotateY = x * 12;
-        const rotateX = y * -12;
-
-        logoScene.style.transform = `
-            translateY(-6px)
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-        `;
-
-    });
-
-    document.addEventListener("mouseleave", () => {
-
-        logoScene.style.transform = `
-            translateY(0px)
-            rotateX(0deg)
-            rotateY(0deg)
-        `;
-
-    });
-
-}
-/* =====================================================
-   TVR VISUALS — 3D MOUSE EFFECT
-   ===================================================== */
-
-const tvr3DObject = document.querySelector(".tvr-3d-object");
-
-if (tvr3DObject) {
-
-    let mouseX = 0;
-    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
 
     let currentX = 0;
     let currentY = 0;
 
-    document.addEventListener("mousemove", (event) => {
 
-        // Muispositie omzetten naar -1 t/m 1
-        mouseX = (event.clientX / window.innerWidth - 0.5) * 2;
-        mouseY = (event.clientY / window.innerHeight - 0.5) * 2;
+    document.addEventListener(
+        "mousemove",
+        event => {
 
-    });
+            targetX =
+                (
+                    event.clientX /
+                    window.innerWidth
+                    -
+                    0.5
+                )
+                *
+                2;
 
-    function animateTvr3D(time) {
+            targetY =
+                (
+                    event.clientY /
+                    window.innerHeight
+                    -
+                    0.5
+                )
+                *
+                2;
 
-        // Zachte beweging richting de muis
-        currentX += (mouseX - currentX) * 0.04;
-        currentY += (mouseY - currentY) * 0.04;
+        }
+    );
 
-        // Automatisch zweven
-        const floatY = Math.sin(time * 0.001) * 6;
 
-        // Rotatie
-        const rotateY = currentX * 10;
-        const rotateX = currentY * -7;
+    function animateLogo() {
 
-        tvr3DObject.style.transform = `
-            translate3d(0, ${floatY}px, 0)
+        currentX +=
+            (
+                targetX -
+                currentX
+            )
+            *
+            0.025;
+
+        currentY +=
+            (
+                targetY -
+                currentY
+            )
+            *
+            0.025;
+
+
+        const rotateY =
+            currentX * 5;
+
+        const rotateX =
+            currentY * -4;
+
+
+        tvrObject.style.transform = `
+
             rotateX(${rotateX}deg)
+
             rotateY(${rotateY}deg)
+
         `;
 
-        requestAnimationFrame(animateTvr3D);
+
+        requestAnimationFrame(
+            animateLogo
+        );
+
     }
 
-    requestAnimationFrame(animateTvr3D);
+
+    animateLogo();
+
 }
-/* =========================================
-   CINEMATIC PORTFOLIO CARD MOUSE EFFECT
-   ========================================= */
-
-document.querySelectorAll(
-    ".showcase-card, .service-card, .portfolio-card"
-).forEach(card => {
-
-    card.addEventListener("mousemove", (e) => {
-
-        const rect = card.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * -2.5;
-        const rotateY = ((x - centerX) / centerX) * 2.5;
-
-        card.style.transform = `
-            perspective(900px)
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-            translateY(-8px)
-            scale(1.015)
-        `;
-
-        card.style.setProperty(
-            "--mouse-x",
-            `${x}px`
-        );
-
-        card.style.setProperty(
-            "--mouse-y",
-            `${y}px`
-        );
-    });
 
 
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = "";
-
-        card.style.setProperty(
-            "--mouse-x",
-            "50%"
-        );
-
-        card.style.setProperty(
-            "--mouse-y",
-            "50%"
-        );
-    });
-
-});
+console.log(
+    "TVR Visuals website geladen."
+);
