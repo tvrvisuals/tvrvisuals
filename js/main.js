@@ -85,6 +85,7 @@ const portfolioData = {
 
         ]
     }
+
 };
 
 
@@ -93,28 +94,51 @@ const portfolioData = {
 ========================================================= */
 
 const serviceCards =
-    document.querySelectorAll(".service-card");
+    document.querySelectorAll(
+        ".service-card"
+    );
+
 
 const portfolioModal =
-    document.getElementById("portfolioModal");
+    document.getElementById(
+        "portfolioModal"
+    );
+
 
 const portfolioGrid =
-    document.getElementById("portfolioGrid");
+    document.getElementById(
+        "portfolioGrid"
+    );
+
 
 const modalTitle =
-    document.getElementById("modalTitle");
+    document.getElementById(
+        "modalTitle"
+    );
+
 
 const modalDescription =
-    document.getElementById("modalDescription");
+    document.getElementById(
+        "modalDescription"
+    );
+
 
 const modalEyebrow =
-    document.getElementById("modalEyebrow");
+    document.getElementById(
+        "modalEyebrow"
+    );
+
 
 const modalClose =
-    document.querySelector(".modal-close");
+    document.querySelector(
+        ".modal-close"
+    );
+
 
 const modalOverlay =
-    document.querySelector(".modal-overlay");
+    document.querySelector(
+        ".modal-overlay"
+    );
 
 
 /* =========================================================
@@ -123,14 +147,19 @@ const modalOverlay =
 
 serviceCards.forEach(card => {
 
-    card.addEventListener("click", () => {
+    card.addEventListener(
+        "click",
+        () => {
 
-        const service =
-            card.dataset.service;
+            const service =
+                card.dataset.service;
 
-        openPortfolio(service);
+            openPortfolio(
+                service
+            );
 
-    });
+        }
+    );
 
 });
 
@@ -144,6 +173,7 @@ function openPortfolio(service) {
     const data =
         portfolioData[service];
 
+
     if (!data) {
         return;
     }
@@ -152,104 +182,175 @@ function openPortfolio(service) {
     modalTitle.textContent =
         data.title;
 
+
     modalDescription.textContent =
         data.description;
+
 
     modalEyebrow.textContent =
         "Portfolio";
 
 
+    /*
+    Oude 4K-melding verwijderen
+    */
+
     const oldQualityNote =
-        document.querySelector(".quality-note");
+        document.querySelector(
+            ".quality-note"
+        );
+
 
     if (oldQualityNote) {
+
         oldQualityNote.remove();
+
     }
 
+
+    /*
+    4K melding video
+    */
 
     if (data.qualityNote) {
 
         const qualityNote =
-            document.createElement("p");
+            document.createElement(
+                "p"
+            );
+
 
         qualityNote.className =
             "quality-note";
 
+
         qualityNote.textContent =
             data.qualityNote;
 
-        modalDescription.insertAdjacentElement(
-            "afterend",
-            qualityNote
-        );
+
+        modalDescription
+            .insertAdjacentElement(
+                "afterend",
+                qualityNote
+            );
+
     }
 
 
-    portfolioGrid.innerHTML = "";
+    portfolioGrid.innerHTML =
+        "";
 
 
     data.items.forEach(item => {
 
         const project =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         project.className =
             "portfolio-item";
 
 
-        /* VIDEO */
+        /* =================================================
+           VIDEO
+        ================================================= */
 
-        if (item.type === "video") {
+        if (
+            item.type ===
+            "video"
+        ) {
 
             const video =
-                document.createElement("video");
+                document.createElement(
+                    "video"
+                );
 
-            video.controls = true;
-            video.playsInline = true;
-            video.preload = "metadata";
+
+            video.controls =
+                true;
+
+
+            video.playsInline =
+                true;
+
+
+            video.preload =
+                "metadata";
 
 
             const source =
-                document.createElement("source");
+                document.createElement(
+                    "source"
+                );
 
-            source.src = item.src;
-            source.type = "video/mp4";
+
+            source.src =
+                item.src;
 
 
-            video.appendChild(source);
+            source.type =
+                "video/mp4";
+
+
+            video.appendChild(
+                source
+            );
 
 
             const title =
-                document.createElement("h3");
+                document.createElement(
+                    "h3"
+                );
+
 
             title.className =
                 "portfolio-title";
+
 
             title.textContent =
                 item.title;
 
 
-            project.appendChild(video);
-            project.appendChild(title);
+            project.appendChild(
+                video
+            );
+
+
+            project.appendChild(
+                title
+            );
 
         }
 
 
-        /* FOTO */
+        /* =================================================
+           FOTO
+        ================================================= */
 
-        if (item.type === "image") {
+        if (
+            item.type ===
+            "image"
+        ) {
 
             const image =
-                document.createElement("img");
+                document.createElement(
+                    "img"
+                );
+
 
             image.className =
                 "portfolio-image";
 
+
             image.src =
                 item.src;
 
+
             image.alt =
                 item.title;
+
 
             image.loading =
                 "lazy";
@@ -261,6 +362,7 @@ function openPortfolio(service) {
 
                     event.stopPropagation();
 
+
                     openImageLightbox(
                         item.src,
                         item.title
@@ -270,20 +372,30 @@ function openPortfolio(service) {
             );
 
 
-            project.appendChild(image);
+            project.appendChild(
+                image
+            );
 
         }
 
 
-        portfolioGrid.appendChild(project);
+        portfolioGrid.appendChild(
+            project
+        );
 
     });
 
 
-    portfolioModal.classList.add("active");
+    portfolioModal
+        .classList
+        .add(
+            "active"
+        );
+
 
     document.body.style.overflow =
         "hidden";
+
 }
 
 
@@ -293,9 +405,16 @@ function openPortfolio(service) {
 
 function closePortfolio() {
 
-    portfolioModal.classList.remove("active");
+    portfolioModal
+        .classList
+        .remove(
+            "active"
+        );
 
-    document.body.style.overflow = "";
+
+    document.body.style.overflow =
+        "";
+
 }
 
 
@@ -305,6 +424,7 @@ if (modalClose) {
         "click",
         closePortfolio
     );
+
 }
 
 
@@ -314,11 +434,12 @@ if (modalOverlay) {
         "click",
         closePortfolio
     );
+
 }
 
 
 /* =========================================================
-   FOTO LIGHTBOX
+   IMAGE LIGHTBOX
 ========================================================= */
 
 function openImageLightbox(
@@ -327,35 +448,51 @@ function openImageLightbox(
 ) {
 
     const oldLightbox =
-        document.querySelector(".image-lightbox");
+        document.querySelector(
+            ".image-lightbox"
+        );
+
 
     if (oldLightbox) {
+
         oldLightbox.remove();
+
     }
 
 
     const lightbox =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     lightbox.className =
         "image-lightbox";
 
 
     const content =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     content.className =
         "image-lightbox-content";
 
 
     const closeButton =
-        document.createElement("button");
+        document.createElement(
+            "button"
+        );
+
 
     closeButton.className =
         "image-lightbox-close";
 
+
     closeButton.innerHTML =
         "&times;";
+
 
     closeButton.setAttribute(
         "aria-label",
@@ -364,39 +501,71 @@ function openImageLightbox(
 
 
     const image =
-        document.createElement("img");
+        document.createElement(
+            "img"
+        );
+
 
     image.src =
         imageSource;
 
+
     image.alt =
-        imageAlt || "TVR Visuals";
+        imageAlt ||
+        "TVR Visuals";
 
 
-    content.appendChild(closeButton);
-    content.appendChild(image);
-
-    lightbox.appendChild(content);
-
-    document.body.appendChild(lightbox);
+    content.appendChild(
+        closeButton
+    );
 
 
-    requestAnimationFrame(() => {
+    content.appendChild(
+        image
+    );
 
-        lightbox.classList.add("active");
 
-    });
+    lightbox.appendChild(
+        content
+    );
+
+
+    document.body.appendChild(
+        lightbox
+    );
+
+
+    requestAnimationFrame(
+        () => {
+
+            lightbox
+                .classList
+                .add(
+                    "active"
+                );
+
+        }
+    );
 
 
     function closeLightbox() {
 
-        lightbox.classList.remove("active");
+        lightbox
+            .classList
+            .remove(
+                "active"
+            );
 
-        setTimeout(() => {
 
-            lightbox.remove();
+        setTimeout(
+            () => {
 
-        }, 350);
+                lightbox.remove();
+
+            },
+            350
+        );
+
     }
 
 
@@ -410,12 +579,18 @@ function openImageLightbox(
         "click",
         event => {
 
-            if (event.target === lightbox) {
+            if (
+                event.target ===
+                lightbox
+            ) {
+
                 closeLightbox();
+
             }
 
         }
     );
+
 }
 
 
@@ -424,7 +599,9 @@ function openImageLightbox(
 ========================================================= */
 
 const aboutWorkImage =
-    document.querySelector(".about-image img");
+    document.getElementById(
+        "aboutWorkImage"
+    );
 
 
 if (aboutWorkImage) {
@@ -440,6 +617,7 @@ if (aboutWorkImage) {
 
         }
     );
+
 }
 
 
@@ -451,13 +629,20 @@ document.addEventListener(
     "keydown",
     event => {
 
-        if (event.key !== "Escape") {
+        if (
+            event.key !==
+            "Escape"
+        ) {
+
             return;
+
         }
 
 
         const imageLightbox =
-            document.querySelector(".image-lightbox");
+            document.querySelector(
+                ".image-lightbox"
+            );
 
 
         if (imageLightbox) {
@@ -465,15 +650,21 @@ document.addEventListener(
             imageLightbox.remove();
 
             return;
+
         }
 
 
         if (
             portfolioModal &&
-            portfolioModal.classList.contains("active")
+            portfolioModal
+                .classList
+                .contains(
+                    "active"
+                )
         ) {
 
             closePortfolio();
+
         }
 
     }
@@ -484,114 +675,285 @@ document.addEventListener(
    SMOOTH SCROLL
 ========================================================= */
 
-document.querySelectorAll(
-    'a[href^="#"]'
-).forEach(link => {
+document
+    .querySelectorAll(
+        'a[href^="#"]'
+    )
+    .forEach(link => {
 
-    link.addEventListener(
-        "click",
-        event => {
+        link.addEventListener(
+            "click",
+            event => {
 
-            const id =
-                link.getAttribute("href");
+                const id =
+                    link.getAttribute(
+                        "href"
+                    );
 
 
-            if (!id || id === "#") {
-                return;
+                if (
+                    !id ||
+                    id === "#"
+                ) {
+
+                    return;
+
+                }
+
+
+                const target =
+                    document.querySelector(
+                        id
+                    );
+
+
+                if (!target) {
+
+                    return;
+
+                }
+
+
+                event.preventDefault();
+
+
+                target.scrollIntoView({
+
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "start"
+
+                });
+
             }
+        );
 
-
-            const target =
-                document.querySelector(id);
-
-
-            if (!target) {
-                return;
-            }
-
-
-            event.preventDefault();
-
-
-            target.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "start"
-
-            });
-
-        }
-    );
-
-});
+    });
 
 
 /* =========================================================
    SERVICE CARD GLOW VOLGT MUIS
-   LET OP:
-   ALLEEN DE GLOW.
-   NIET DE TRANSFORM VAN DE KAART.
 ========================================================= */
 
-document.querySelectorAll(
-    ".service-card"
-).forEach(card => {
+document
+    .querySelectorAll(
+        ".service-card"
+    )
+    .forEach(card => {
 
-    card.addEventListener(
-        "mousemove",
-        event => {
+        card.addEventListener(
+            "mousemove",
+            event => {
 
-            const rect =
-                card.getBoundingClientRect();
-
-            const x =
-                event.clientX - rect.left;
-
-            const y =
-                event.clientY - rect.top;
+                const rect =
+                    card.getBoundingClientRect();
 
 
-            card.style.setProperty(
-                "--mouse-x",
-                `${x}px`
-            );
-
-            card.style.setProperty(
-                "--mouse-y",
-                `${y}px`
-            );
-
-        }
-    );
+                const x =
+                    event.clientX -
+                    rect.left;
 
 
-    card.addEventListener(
-        "mouseleave",
-        () => {
+                const y =
+                    event.clientY -
+                    rect.top;
 
-            card.style.setProperty(
-                "--mouse-x",
-                "50%"
-            );
 
-            card.style.setProperty(
-                "--mouse-y",
-                "50%"
-            );
+                card.style
+                    .setProperty(
+                        "--mouse-x",
+                        `${x}px`
+                    );
 
-        }
-    );
 
-});
+                card.style
+                    .setProperty(
+                        "--mouse-y",
+                        `${y}px`
+                    );
+
+            }
+        );
+
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                card.style
+                    .setProperty(
+                        "--mouse-x",
+                        "50%"
+                    );
+
+
+                card.style
+                    .setProperty(
+                        "--mouse-y",
+                        "50%"
+                    );
+
+            }
+        );
+
+    });
 
 
 /* =========================================================
-   3D TVR BOL VOLGT MUIS
+   HERO SLUITER VOLGT MUIS
+========================================================= */
+
+const heroShutter =
+    document.querySelector(
+        ".hero-shutter-float"
+    );
+
+
+if (heroShutter) {
+
+    let targetShutterX = 0;
+    let targetShutterY = 0;
+
+    let currentShutterX = 0;
+    let currentShutterY = 0;
+
+
+    document.addEventListener(
+        "mousemove",
+        event => {
+
+            /*
+            Alleen desktop
+            */
+
+            if (
+                window.innerWidth <=
+                900
+            ) {
+
+                return;
+
+            }
+
+
+            const normalX =
+                (
+                    event.clientX /
+                    window.innerWidth
+                    -
+                    0.5
+                )
+                *
+                2;
+
+
+            const normalY =
+                (
+                    event.clientY /
+                    window.innerHeight
+                    -
+                    0.5
+                )
+                *
+                2;
+
+
+            targetShutterY =
+                normalX * 8;
+
+
+            targetShutterX =
+                normalY * -6;
+
+        }
+    );
+
+
+    document.addEventListener(
+        "mouseleave",
+        () => {
+
+            targetShutterX =
+                0;
+
+            targetShutterY =
+                0;
+
+        }
+    );
+
+
+    function animateHeroShutter() {
+
+        /*
+        Langzame vloeiende reactie.
+        */
+
+        currentShutterX +=
+            (
+                targetShutterX -
+                currentShutterX
+            )
+            *
+            0.045;
+
+
+        currentShutterY +=
+            (
+                targetShutterY -
+                currentShutterY
+            )
+            *
+            0.045;
+
+
+        /*
+        We veranderen alleen de rotatie.
+        De float animatie blijft in CSS.
+        */
+
+        heroShutter.style
+            .rotate =
+            `
+                ${currentShutterX * 0.12}deg
+            `;
+
+
+        heroShutter.style
+            .transform =
+            `
+                rotateX(
+                    ${currentShutterX}deg
+                )
+
+                rotateY(
+                    ${currentShutterY}deg
+                )
+            `;
+
+
+        requestAnimationFrame(
+            animateHeroShutter
+        );
+
+    }
+
+
+    animateHeroShutter();
+
+}
+
+
+/* =========================================================
+   3D TVR OBJECT VOLGT MUIS
 ========================================================= */
 
 const tvrObject =
-    document.querySelector(".tvr-3d-object");
+    document.querySelector(
+        ".tvr-3d-object"
+    );
 
 
 if (tvrObject) {
@@ -607,43 +969,52 @@ if (tvrObject) {
         "mousemove",
         event => {
 
-            /*
-            Alleen op desktop.
-            */
+            if (
+                window.innerWidth <=
+                900
+            ) {
 
-            if (window.innerWidth <= 900) {
                 return;
+
             }
 
 
             const mouseX =
-                event.clientX / window.innerWidth;
+                event.clientX /
+                window.innerWidth;
+
 
             const mouseY =
-                event.clientY / window.innerHeight;
+                event.clientY /
+                window.innerHeight;
 
-
-            /*
-            Van -1 tot +1
-            */
 
             const normalizedX =
-                (mouseX - 0.5) * 2;
+                (
+                    mouseX -
+                    0.5
+                )
+                *
+                2;
+
 
             const normalizedY =
-                (mouseY - 0.5) * 2;
+                (
+                    mouseY -
+                    0.5
+                )
+                *
+                2;
 
-
-            /*
-            Meer beweging dan vorige versie,
-            maar nog steeds subtiel.
-            */
 
             targetRotateY =
-                normalizedX * 10;
+                normalizedX *
+                10;
+
 
             targetRotateX =
-                normalizedY * -7;
+                normalizedY *
+                -7;
 
         }
     );
@@ -653,8 +1024,12 @@ if (tvrObject) {
         "mouseleave",
         () => {
 
-            targetRotateX = 0;
-            targetRotateY = 0;
+            targetRotateX =
+                0;
+
+
+            targetRotateY =
+                0;
 
         }
     );
@@ -662,31 +1037,45 @@ if (tvrObject) {
 
     function animateTvrObject() {
 
-        /*
-        Hoe lager dit getal,
-        hoe soepeler hij achter je muis aan loopt.
-        */
-
         currentRotateX +=
-            (targetRotateX - currentRotateX) * 0.055;
+            (
+                targetRotateX -
+                currentRotateX
+            )
+            *
+            0.055;
+
 
         currentRotateY +=
-            (targetRotateY - currentRotateY) * 0.055;
+            (
+                targetRotateY -
+                currentRotateY
+            )
+            *
+            0.055;
 
 
-        tvrObject.style.transform = `
-            rotateX(${currentRotateX}deg)
-            rotateY(${currentRotateY}deg)
-        `;
+        tvrObject.style.transform =
+            `
+                rotateX(
+                    ${currentRotateX}deg
+                )
+
+                rotateY(
+                    ${currentRotateY}deg
+                )
+            `;
 
 
         requestAnimationFrame(
             animateTvrObject
         );
+
     }
 
 
     animateTvrObject();
+
 }
 
 

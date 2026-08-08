@@ -1,6 +1,6 @@
 /* =========================================================
    TVR VISUALS
-   CLEAN PREMIUM VERSION
+   PREMIUM / MINIMAL / AUTOMOTIVE
 ========================================================= */
 
 
@@ -21,7 +21,9 @@ html {
 body {
     background: #050505;
     color: #ffffff;
+
     font-family: "Inter", sans-serif;
+
     overflow-x: hidden;
 }
 
@@ -41,6 +43,7 @@ button {
 
 .navbar {
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -54,7 +57,9 @@ button {
     padding: 0 5.5vw;
 
     background: rgba(5, 5, 5, 0.76);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.07);
 
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -63,7 +68,7 @@ button {
 }
 
 
-/* Logo desktop */
+/* Logo links */
 
 .nav-logo {
     justify-self: start;
@@ -90,7 +95,7 @@ button {
 }
 
 
-/* Navigatie midden */
+/* Menu exact in midden */
 
 .navbar nav {
     grid-column: 2;
@@ -103,7 +108,7 @@ button {
 }
 
 .navbar nav a {
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(255, 255, 255, 0.94);
 
     font-size: 14px;
     font-weight: 400;
@@ -111,8 +116,8 @@ button {
     white-space: nowrap;
 
     transition:
-        color 0.45s ease,
-        opacity 0.45s ease;
+        color 0.3s ease,
+        opacity 0.3s ease;
 }
 
 .navbar nav a:hover {
@@ -120,7 +125,7 @@ button {
 }
 
 
-/* Contactknop rechts */
+/* Contactknop */
 
 .nav-button {
     grid-column: 3;
@@ -135,31 +140,36 @@ button {
 
     padding: 0 20px;
 
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    border:
+        1px solid rgba(255, 255, 255, 0.22);
+
     border-radius: 999px;
 
-    background: rgba(255, 255, 255, 0.025);
+    background:
+        rgba(255, 255, 255, 0.025);
 
     color: #ffffff;
 
     font-size: 13px;
 
     transition:
-        transform 0.75s ease-in-out,
-        background 0.65s ease,
-        border-color 0.65s ease,
-        box-shadow 0.75s ease;
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .nav-button:hover {
     transform: translateY(-3px);
 
-    background: rgba(255, 255, 255, 0.07);
+    background:
+        rgba(255, 255, 255, 0.07);
 
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color:
+        rgba(255, 255, 255, 0.40);
 
     box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.3),
+        0 12px 30px rgba(0, 0, 0, 0.30),
         0 0 20px rgba(255, 255, 255, 0.035);
 }
 
@@ -189,23 +199,14 @@ button {
     z-index: 5;
 }
 
-.hero-small {
-    margin-bottom: 25px;
-
-    color: #999;
-
-    font-size: 12px;
-
-    letter-spacing: 5px;
-}
-
 
 /* =========================================================
-   HERO TITEL
+   HERO TITLE
 ========================================================= */
 
 .cinematic-title {
-    font-size: clamp(55px, 8vw, 120px);
+    font-size:
+        clamp(55px, 8vw, 120px);
 
     line-height: 1.02;
 
@@ -246,24 +247,48 @@ button {
 
     from {
         opacity: 0;
-        transform: translateY(55px);
-        filter: blur(8px);
+
+        transform:
+            translateY(55px);
+
+        filter:
+            blur(8px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
     }
 }
 
 
-/* Hero tekst */
+/* TVR VISUALS */
+
+.hero-small {
+    margin-top: 28px;
+
+    color:
+        rgba(255, 255, 255, 0.60);
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    letter-spacing: 7px;
+}
+
+
+/* Beschrijving */
 
 .hero-description {
     max-width: 570px;
 
-    margin-top: 35px;
+    margin-top: 28px;
 
     color: #999;
 
@@ -301,14 +326,15 @@ button {
     font-size: 13px;
 
     transition:
-        transform 0.3s ease-in-out,
-        box-shadow 0.3s ease-in-out,
-        background 0.3s ease,
-        border-color 0.3s ease;
+        transform 0.30s ease,
+        box-shadow 0.30s ease,
+        background 0.30s ease,
+        border-color 0.30s ease;
 }
 
 .button:hover {
-    transform: translateY(-5px);
+    transform:
+        translateY(-5px);
 
     box-shadow:
         0 14px 36px rgba(0, 0, 0, 0.32),
@@ -317,6 +343,7 @@ button {
 
 .button-light {
     background: #ffffff;
+
     color: #000000;
 }
 
@@ -325,13 +352,16 @@ button {
 
     background: transparent;
 
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
 }
 
 .button-outline:hover {
-    background: rgba(255, 255, 255, 0.07);
+    background:
+        rgba(255, 255, 255, 0.07);
 
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color:
+        rgba(255, 255, 255, 0.40);
 }
 
 
@@ -354,223 +384,345 @@ button {
 
     filter: blur(100px);
 
-    opacity: 0.3;
+    opacity: 0.20;
 }
 
 .orb-one {
-    width: 350px;
-    height: 350px;
+    width: 360px;
+    height: 360px;
 
-    right: 12%;
-    top: 25%;
+    right: 9%;
+    top: 22%;
 
     background: #777;
 }
 
 .orb-two {
-    width: 250px;
-    height: 250px;
+    width: 260px;
+    height: 260px;
 
-    left: 35%;
-    bottom: 5%;
+    left: 36%;
+    bottom: 2%;
 
     background: #444;
 }
 
 
 /* =========================================================
-   CAMERA
+   HERO CAMERA SHUTTER
 ========================================================= */
 
-.camera-3d {
+.hero-shutter {
     position: absolute;
 
-    width: 520px;
-    height: 520px;
+    width: 480px;
+    height: 480px;
 
-    right: 8%;
+    right: 7%;
     top: 50%;
 
-    opacity: 0.23;
-
     transform:
-        translateY(-50%)
-        rotateX(18deg)
-        rotateY(-20deg);
+        translateY(-50%);
+
+    perspective: 1200px;
+
+    z-index: 2;
+
+    opacity: 0.72;
+}
+
+
+/*
+Dit element krijgt de muis-rotatie vanuit JavaScript.
+*/
+
+.hero-shutter-float {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     transform-style: preserve-3d;
 
-    animation: cameraFloat 8s ease-in-out infinite;
+    will-change: transform;
+
+    animation:
+        shutterFloat
+        7s
+        ease-in-out
+        infinite;
 }
 
-.camera-body {
-    position: absolute;
 
-    width: 310px;
-    height: 205px;
+/* Foto zelf */
 
-    right: 40px;
-    top: 45px;
+.shutter-image-wrap {
+    position: relative;
 
-    border-radius: 28px;
+    width: 390px;
+    height: 390px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #252525,
-            #111111 45%,
-            #080808
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    transform:
+        translateZ(25px);
+
+    filter:
+        drop-shadow(
+            0 35px 60px
+            rgba(0, 0, 0, 0.60)
         );
 
-    border: 1px solid #383838;
-
-    box-shadow:
-        25px 30px 50px rgba(0, 0, 0, 0.65),
-        inset 2px 2px 8px rgba(255, 255, 255, 0.06),
-        inset -5px -5px 15px rgba(0, 0, 0, 0.8);
+    isolation: isolate;
 }
 
-.camera-top {
+.shutter-image {
     position: absolute;
 
-    width: 105px;
-    height: 24px;
+    inset: 0;
 
-    top: -18px;
-    left: 48px;
+    width: 100%;
+    height: 100%;
 
-    border-radius: 7px 7px 3px 3px;
+    display: block;
 
-    background: linear-gradient(145deg, #292929, #101010);
+    object-fit: cover;
 
-    border: 1px solid #3a3a3a;
+    border-radius: 50%;
+
+    user-select: none;
+
+    filter:
+        brightness(0.72)
+        contrast(1.08)
+        saturate(0.65);
 }
 
-.camera-grip {
+
+/* =========================================================
+   SLUITER OPEN / DICHT EFFECT
+========================================================= */
+
+/*
+De echte foto blijft zichtbaar.
+
+Daar bovenop ligt een donkere iris.
+De binnenste zwarte opening wordt groter en kleiner.
+
+Daardoor lijkt het alsof de sluiter rustig ademt.
+*/
+
+.shutter-opening {
+    --iris-size: 14%;
+
     position: absolute;
 
-    width: 58px;
-    height: 155px;
+    inset: 17%;
 
-    right: -35px;
-    top: 28px;
+    border-radius: 50%;
 
-    border-radius: 8px 18px 18px 8px;
+    z-index: 3;
 
-    background: linear-gradient(90deg, #171717, #090909);
+    pointer-events: none;
 
-    border: 1px solid #303030;
+    background:
+        radial-gradient(
+            circle at center,
 
-    transform: rotate(5deg);
+            rgba(0, 0, 0, 1)
+                0,
+
+            rgba(0, 0, 0, 0.98)
+                var(--iris-size),
+
+            rgba(0, 0, 0, 0.72)
+                calc(var(--iris-size) + 2%),
+
+            rgba(0, 0, 0, 0.22)
+                calc(var(--iris-size) + 18%),
+
+            transparent
+                60%
+        );
+
+    animation:
+        shutterBreath
+        7.5s
+        ease-in-out
+        infinite;
 }
 
-.camera-mount {
+
+/*
+Extra subtiele rotatie maakt het effect mechanischer,
+maar niet overdreven "AI".
+*/
+
+.shutter-opening::before {
+    content: "";
+
     position: absolute;
 
-    width: 38px;
-    height: 18px;
+    inset: 0;
 
-    top: -29px;
-    left: 82px;
+    border-radius: 50%;
 
-    border-radius: 4px;
+    border:
+        1px solid rgba(255, 255, 255, 0.025);
 
-    background: #0d0d0d;
+    background:
+        repeating-conic-gradient(
+            from 12deg,
 
-    border: 1px solid #353535;
+            rgba(0, 0, 0, 0.16)
+                0deg 27deg,
+
+            rgba(255, 255, 255, 0.012)
+                27deg 30deg,
+
+            rgba(0, 0, 0, 0.16)
+                30deg 57deg,
+
+            rgba(255, 255, 255, 0.012)
+                57deg 60deg
+        );
+
+    mix-blend-mode:
+        multiply;
+
+    animation:
+        shutterBladeTurn
+        7.5s
+        ease-in-out
+        infinite;
 }
 
-.camera-lens {
+
+/* Reflectie */
+
+.shutter-reflection {
     position: absolute;
 
-    width: 145px;
-    height: 145px;
+    width: 38%;
+    height: 19%;
 
-    left: -58px;
-    top: 28px;
+    left: 22%;
+    top: 19%;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
-            circle at 38% 35%,
-            #555 0%,
-            #202020 12%,
-            #090909 38%,
-            #151515 60%,
-            #050505 100%
+            ellipse,
+            rgba(255, 255, 255, 0.09),
+            transparent 70%
         );
 
-    border: 7px solid #292929;
+    filter:
+        blur(12px);
 
-    box-shadow:
-        0 0 0 2px #454545,
-        0 15px 25px rgba(0, 0, 0, 0.6),
-        inset 5px 5px 12px rgba(255, 255, 255, 0.08),
-        inset -8px -8px 15px rgba(0, 0, 0, 0.8);
+    opacity: 0.45;
+
+    transform:
+        rotate(-18deg);
+
+    pointer-events: none;
+
+    z-index: 4;
 }
 
-.camera-ring {
+
+/* Glow achter sluiter */
+
+.shutter-glow {
     position: absolute;
+
+    width: 420px;
+    height: 420px;
 
     border-radius: 50%;
-}
 
-.camera-ring.ring-one {
-    width: 125px;
-    height: 125px;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.020) 42%,
+            transparent 72%
+        );
 
-    left: -48px;
-    top: 38px;
-
-    border: 2px solid #4a4a4a;
-
-    opacity: 0.55;
-}
-
-.camera-ring.ring-two {
-    width: 105px;
-    height: 105px;
-
-    left: -38px;
-    top: 48px;
-
-    border: 1px solid #686868;
-
-    opacity: 0.30;
-}
-
-.camera-detail {
-    position: absolute;
-
-    width: 42px;
-    height: 8px;
-
-    right: 25px;
-    top: 22px;
-
-    border-radius: 4px;
-
-    background: #3a3a3a;
+    filter:
+        blur(30px);
 
     opacity: 0.7;
 }
 
-@keyframes cameraFloat {
+
+/* Sluiter zweeft */
+
+@keyframes shutterFloat {
 
     0%,
     100% {
         transform:
-            translateY(-50%)
-            rotateX(18deg)
-            rotateY(-20deg);
+            translateY(0)
+            rotateZ(-1deg);
     }
 
     50% {
         transform:
-            translateY(-54%)
-            rotateX(21deg)
-            rotateY(10deg);
+            translateY(-12px)
+            rotateZ(1deg);
+    }
+}
+
+
+/* Open / dicht */
+
+@keyframes shutterBreath {
+
+    0%,
+    100% {
+        --iris-size: 11%;
+
+        transform:
+            scale(1);
+
+        opacity: 0.93;
+    }
+
+    45%,
+    55% {
+        --iris-size: 31%;
+
+        transform:
+            scale(0.985);
+
+        opacity: 0.72;
+    }
+}
+
+
+/* Blade movement */
+
+@keyframes shutterBladeTurn {
+
+    0%,
+    100% {
+        transform:
+            rotate(0deg)
+            scale(1.02);
+    }
+
+    50% {
+        transform:
+            rotate(13deg)
+            scale(0.94);
     }
 }
 
@@ -604,13 +756,15 @@ button {
 
 
 /* =========================================================
-   SECTIES
+   ALGEMENE SECTIES
 ========================================================= */
 
 .services,
 .showcase,
 .contact {
-    padding: 150px 8%;
+    padding:
+        150px
+        8%;
 }
 
 .eyebrow {
@@ -634,7 +788,8 @@ button {
 .section-heading h2,
 .showcase h2,
 .contact h2 {
-    font-size: clamp(45px, 6vw, 85px);
+    font-size:
+        clamp(45px, 6vw, 85px);
 
     line-height: 0.95;
 
@@ -657,7 +812,7 @@ button {
 
 
 /* =========================================================
-   SERVICE CARDS
+   SERVICES
 ========================================================= */
 
 .service-grid {
@@ -691,12 +846,13 @@ button {
             #080808
         );
 
-    border: 1px solid #202020;
+    border:
+        1px solid #202020;
 
     transition:
-        transform 0.4s ease-in-out,
-        border-color 0.4s ease-in-out,
-        box-shadow 0.4s ease-in-out;
+        transform 0.40s ease-in-out,
+        border-color 0.40s ease-in-out,
+        box-shadow 0.40s ease-in-out;
 }
 
 .service-card::before {
@@ -708,10 +864,17 @@ button {
 
     background:
         radial-gradient(
-            circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            circle at
+            var(--mouse-x, 50%)
+            var(--mouse-y, 50%),
+
             rgba(255, 255, 255, 0.11),
-            rgba(255, 255, 255, 0.035) 28%,
-            transparent 62%
+
+            rgba(255, 255, 255, 0.035)
+                28%,
+
+            transparent
+                62%
         );
 
     opacity: 0;
@@ -719,13 +882,15 @@ button {
     pointer-events: none;
 
     transition:
-        opacity 0.4s ease-in-out;
+        opacity 0.40s ease-in-out;
 }
 
 .service-card:hover {
-    transform: translateY(-7px);
+    transform:
+        translateY(-7px);
 
-    border-color: rgba(255, 255, 255, 0.18);
+    border-color:
+        rgba(255, 255, 255, 0.18);
 
     box-shadow:
         0 22px 65px rgba(0, 0, 0, 0.40),
@@ -790,7 +955,8 @@ button {
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     align-items: center;
 
@@ -816,13 +982,14 @@ button {
 
     padding-bottom: 7px;
 
-    border-bottom: 1px solid #555;
+    border-bottom:
+        1px solid #555;
 
     font-size: 13px;
 
     transition:
-        color 0.6s ease,
-        border-color 0.6s ease;
+        color 0.30s ease,
+        border-color 0.30s ease;
 }
 
 .text-link:hover {
@@ -833,7 +1000,7 @@ button {
 
 
 /* =========================================================
-   3D TVR OBJECT
+   TVR 3D OBJECT
 ========================================================= */
 
 .showcase-visual {
@@ -860,10 +1027,15 @@ button {
 
     perspective: 1000px;
 
-    transform-style: preserve-3d;
+    transform-style:
+        preserve-3d;
 
-    will-change: transform;
+    will-change:
+        transform;
 }
+
+
+/* Sphere */
 
 .tvr-3d-sphere {
     position: absolute;
@@ -898,13 +1070,18 @@ button {
 
     0%,
     100% {
-        transform: scale(1);
+        transform:
+            scale(1);
     }
 
     50% {
-        transform: scale(1.025);
+        transform:
+            scale(1.025);
     }
 }
+
+
+/* Orbits */
 
 .tvr-orbit {
     position: absolute;
@@ -912,34 +1089,53 @@ button {
     width: 360px;
     height: 145px;
 
-    border: 1px solid rgba(255, 255, 255, 0.13);
+    border:
+        1px solid rgba(255, 255, 255, 0.13);
 
     border-radius: 50%;
 
-    transform-style: preserve-3d;
+    transform-style:
+        preserve-3d;
 }
 
 .tvr-orbit-1 {
-    animation: orbit1 12s linear infinite;
+    animation:
+        orbit1
+        12s
+        linear
+        infinite;
 }
 
 .tvr-orbit-2 {
     width: 340px;
     height: 135px;
 
-    border-color: rgba(255, 255, 255, 0.10);
+    border-color:
+        rgba(255, 255, 255, 0.10);
 
-    animation: orbit2 16s linear infinite;
+    animation:
+        orbit2
+        16s
+        linear
+        infinite;
 }
 
 .tvr-orbit-3 {
     width: 320px;
     height: 125px;
 
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color:
+        rgba(255, 255, 255, 0.08);
 
-    animation: orbit3 20s linear infinite;
+    animation:
+        orbit3
+        20s
+        linear
+        infinite;
 }
+
+
+/* Orbit animaties */
 
 @keyframes orbit1 {
 
@@ -990,6 +1186,9 @@ button {
     }
 }
 
+
+/* TVR logo */
+
 .tvr-logo-3d {
     position: absolute;
 
@@ -1014,21 +1213,28 @@ button {
 
 
 /* =========================================================
-   OVER MIJ
+   ABOUT
 ========================================================= */
 
 .about-section {
-    width: min(1280px, calc(100% - 80px));
+    width:
+        min(
+            1280px,
+            calc(100% - 80px)
+        );
 
     min-height: 720px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
-    padding: 140px 0;
+    padding:
+        140px 0;
 
     display: grid;
 
-    grid-template-columns: 1fr 0.9fr;
+    grid-template-columns:
+        1fr 0.9fr;
 
     align-items: center;
 
@@ -1050,12 +1256,13 @@ button {
 
     background: #111;
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
 
     transition:
-        transform 0.3s ease-in-out,
-        border-color 0.3s ease-in-out,
-        box-shadow 0.3s ease-in-out;
+        transform 0.30s ease-in-out,
+        border-color 0.30s ease-in-out,
+        box-shadow 0.30s ease-in-out;
 }
 
 .about-image img {
@@ -1068,26 +1275,31 @@ button {
 
     cursor: zoom-in;
 
-    filter: grayscale(100%);
+    filter:
+        grayscale(100%);
 
     transition:
-        filter 0.4s ease-in-out,
-        transform 0.4s ease-in-out;
+        filter 0.40s ease-in-out,
+        transform 0.40s ease-in-out;
 }
 
 .about-image:hover {
-    transform: translateY(-7px);
+    transform:
+        translateY(-7px);
 
-    border-color: rgba(255, 255, 255, 0.16);
+    border-color:
+        rgba(255, 255, 255, 0.16);
 
     box-shadow:
         0 25px 70px rgba(0, 0, 0, 0.45);
 }
 
 .about-image:hover img {
-    filter: grayscale(0%);
+    filter:
+        grayscale(0%);
 
-    transform: scale(1.018);
+    transform:
+        scale(1.018);
 }
 
 .about-content {
@@ -1099,7 +1311,8 @@ button {
 
     margin-bottom: 24px;
 
-    color: rgba(255, 255, 255, 0.42);
+    color:
+        rgba(255, 255, 255, 0.42);
 
     font-size: 11px;
 
@@ -1109,7 +1322,8 @@ button {
 .about-content h2 {
     margin-bottom: 38px;
 
-    font-size: clamp(52px, 5vw, 78px);
+    font-size:
+        clamp(52px, 5vw, 78px);
 
     line-height: 0.95;
 
@@ -1117,7 +1331,8 @@ button {
 }
 
 .about-content h2 span {
-    color: rgba(255, 255, 255, 0.38);
+    color:
+        rgba(255, 255, 255, 0.38);
 }
 
 .about-content p {
@@ -1125,12 +1340,16 @@ button {
 
     margin-bottom: 24px;
 
-    color: rgba(255, 255, 255, 0.52);
+    color:
+        rgba(255, 255, 255, 0.52);
 
     font-size: 16px;
 
     line-height: 1.8;
 }
+
+
+/* About logo */
 
 .about-logo {
     width: 72px;
@@ -1141,8 +1360,8 @@ button {
     opacity: 0.42;
 
     transition:
-        opacity 0.75s ease,
-        transform 0.75s ease;
+        opacity 0.40s ease,
+        transform 0.40s ease;
 }
 
 .about-logo img {
@@ -1155,7 +1374,8 @@ button {
 .about-logo:hover {
     opacity: 0.85;
 
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 }
 
 
@@ -1169,6 +1389,7 @@ button {
     inset: 0;
 
     display: none;
+
     align-items: center;
     justify-content: center;
 
@@ -1186,15 +1407,21 @@ button {
 
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.90);
+    background:
+        rgba(0, 0, 0, 0.90);
 
-    backdrop-filter: blur(18px);
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
 }
 
 .modal-window {
     position: relative;
 
-    width: min(1100px, 100%);
+    width:
+        min(1100px, 100%);
 
     max-height: 90vh;
 
@@ -1204,7 +1431,8 @@ button {
 
     background: #0c0c0c;
 
-    border: 1px solid #252525;
+    border:
+        1px solid #252525;
 
     z-index: 2;
 }
@@ -1279,18 +1507,21 @@ button {
 
     background: #151515;
 
-    border: 1px solid #222;
+    border:
+        1px solid #222;
 
     transition:
-        transform 0.3s ease-in-out,
-        border-color 0.3s ease-in-out,
-        box-shadow 0.3s ease-in-out;
+        transform 0.30s ease-in-out,
+        border-color 0.30s ease-in-out,
+        box-shadow 0.30s ease-in-out;
 }
 
 .portfolio-item:hover {
-    transform: translateY(-7px);
+    transform:
+        translateY(-7px);
 
-    border-color: rgba(255, 255, 255, 0.18);
+    border-color:
+        rgba(255, 255, 255, 0.18);
 
     box-shadow:
         0 22px 65px rgba(0, 0, 0, 0.40);
@@ -1308,7 +1539,8 @@ button {
 }
 
 .portfolio-item img {
-    filter: grayscale(100%);
+    filter:
+        grayscale(100%);
 
     cursor: zoom-in;
 
@@ -1318,13 +1550,16 @@ button {
 }
 
 .portfolio-item:hover img {
-    filter: grayscale(0%);
+    filter:
+        grayscale(0%);
 
-    transform: scale(1.018);
+    transform:
+        scale(1.018);
 }
 
 .portfolio-title {
-    margin: 14px 4px 8px;
+    margin:
+        14px 4px 8px;
 
     color: #ffffff;
 
@@ -1349,18 +1584,21 @@ button {
 
     padding: 40px;
 
-    background: rgba(0, 0, 0, 0.95);
+    background:
+        rgba(0, 0, 0, 0.95);
 
     opacity: 0;
     visibility: hidden;
 
-    transition: opacity 0.35s ease;
+    transition:
+        opacity 0.35s ease;
 
     z-index: 99999;
 }
 
 .image-lightbox.active {
     opacity: 1;
+
     visibility: visible;
 }
 
@@ -1382,7 +1620,8 @@ button {
 
     object-fit: contain;
 
-    filter: none !important;
+    filter:
+        none !important;
 }
 
 .image-lightbox-close {
@@ -1416,13 +1655,15 @@ button {
 .contact-inner {
     max-width: 850px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 }
 
 .contact-inner > p:not(.eyebrow) {
     max-width: 500px;
 
-    margin: 30px auto;
+    margin:
+        30px auto;
 
     color: #888;
 
@@ -1434,7 +1675,8 @@ button {
 
     margin-top: 25px;
 
-    padding: 17px 30px;
+    padding:
+        17px 30px;
 
     border-radius: 100px;
 
@@ -1443,12 +1685,13 @@ button {
     color: #000000;
 
     transition:
-        transform 0.3s ease-in-out,
-        box-shadow 0.3s ease-in-out;
+        transform 0.30s ease-in-out,
+        box-shadow 0.30s ease-in-out;
 }
 
 .contact-button:hover {
-    transform: translateY(-5px);
+    transform:
+        translateY(-5px);
 
     box-shadow:
         0 14px 36px rgba(0, 0, 0, 0.32);
@@ -1474,11 +1717,13 @@ button {
 ========================================================= */
 
 footer {
-    padding: 30px 8%;
+    padding:
+        30px 8%;
 
     text-align: center;
 
-    border-top: 1px solid #181818;
+    border-top:
+        1px solid #181818;
 
     color: #555;
 
@@ -1487,7 +1732,7 @@ footer {
 
 
 /* =========================================================
-   MOBIEL
+   MOBIEL / TABLET
 ========================================================= */
 
 .mobile-hero-logo {
@@ -1496,6 +1741,9 @@ footer {
 
 
 @media (max-width: 900px) {
+
+
+    /* Navbar */
 
     .navbar {
         grid-template-columns: 1fr;
@@ -1519,7 +1767,8 @@ footer {
     }
 
     .navbar nav a {
-        color: rgba(255, 255, 255, 0.96);
+        color:
+            rgba(255, 255, 255, 0.97);
 
         font-size: 12px;
 
@@ -1530,66 +1779,105 @@ footer {
     /* Hero */
 
     .hero {
-    padding: 175px 7% 75px;
-}
+        padding:
+            190px
+            7%
+            75px;
+    }
 
     .cinematic-title {
-        font-size: clamp(52px, 15vw, 76px);
+        font-size:
+            clamp(52px, 15vw, 76px);
 
         letter-spacing: -3px;
     }
 
+    .hero-small {
+        margin-top: 24px;
 
-    /* Mobiel hero logo - groot boven TVR VISUALS */
+        font-size: 14px;
 
-.mobile-hero-logo {
-    display: block;
-
-    position: absolute;
-
-    top: 92px;
-
-    left: 4%;
-
-    width: 118px;
-    height: auto;
-
-    z-index: 20;
-
-    pointer-events: none;
-}
-
-.mobile-hero-logo img {
-    display: block;
-
-    width: 118px;
-    height: auto;
-
-    object-fit: contain;
-
-    filter:
-        brightness(0)
-        invert(1);
-
-    opacity: 1;
-}
-
-
-    .camera-3d {
-        right: -150px;
-
-        opacity: 0.12;
-
-        transform:
-            translateY(-50%)
-            scale(0.72);
+        letter-spacing: 6px;
     }
 
+
+    /*
+    Nieuwe grote mobiele TVR logo.
+    Staat boven Made to be seen.
+    Linker camerastreep grenst visueel aan dezelfde linkerlijn.
+    */
+
+    .mobile-hero-logo {
+        display: block;
+
+        position: absolute;
+
+        top: 92px;
+
+        left: 4%;
+
+        width: 118px;
+
+        z-index: 20;
+
+        pointer-events: none;
+    }
+
+    .mobile-hero-logo img {
+        display: block;
+
+        width: 118px;
+        height: auto;
+
+        object-fit: contain;
+
+        filter:
+            brightness(0)
+            invert(1);
+
+        opacity: 1;
+    }
+
+/* =========================================================
+   CAMERA SLUITER OP TELEFOON
+   ========================================================= */
+
+.hero-shutter {
+    display: block;
+
+    width: 250px;
+    height: 250px;
+
+    top: 33%;
+    right: -72px;
+
+    transform: translateY(-50%);
+
+    opacity: 0.30;
+
+    z-index: 1;
+}
+
+.shutter-image-wrap {
+    width: 220px;
+    height: 220px;
+}
+
+.shutter-glow {
+    width: 240px;
+    height: 240px;
+
+    opacity: 0.45;
+}
+
+    /* Services */
 
     .service-grid {
         grid-template-columns: 1fr;
     }
 
+
+    /* Showcase */
 
     .showcase {
         grid-template-columns: 1fr;
@@ -1597,41 +1885,37 @@ footer {
         gap: 50px;
     }
 
-
     .showcase-visual {
         min-height: 420px;
     }
 
+
+    /* TVR 3D */
 
     .tvr-3d-object {
         width: 360px;
         height: 360px;
     }
 
-
     .tvr-3d-sphere {
         width: 145px;
         height: 145px;
     }
-
 
     .tvr-orbit {
         width: 280px;
         height: 110px;
     }
 
-
     .tvr-orbit-2 {
         width: 260px;
         height: 105px;
     }
 
-
     .tvr-orbit-3 {
         width: 245px;
         height: 98px;
     }
-
 
     .tvr-logo-3d {
         width: 110px;
@@ -1639,40 +1923,53 @@ footer {
     }
 
 
-    .about-section {
-        width: calc(100% - 40px);
+    /* About */
 
-        grid-template-columns: 1fr;
+    .about-section {
+        width:
+            calc(100% - 40px);
+
+        grid-template-columns:
+            1fr;
 
         gap: 55px;
 
-        padding: 100px 0;
+        padding:
+            100px 0;
     }
 
+
+    /* Sections */
 
     .services,
     .showcase,
     .contact {
-        padding: 100px 7%;
+        padding:
+            100px 7%;
     }
 
 
+    /* Portfolio */
+
     .portfolio-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
         gap: 24px;
     }
 
 
     .modal-window {
-        padding: 30px 20px;
+        padding:
+            30px 20px;
     }
-
 
     .modal-header h2 {
         font-size: 42px;
     }
 
+
+    /* Contact */
 
     .contact-details {
         flex-direction: column;
@@ -1681,42 +1978,79 @@ footer {
     }
 
 
+    /* Hero buttons */
+
     .hero-buttons {
         flex-direction: column;
     }
 
 
-    /* Portfolio mobiel ALTIJD kleur */
+    /*
+    PORTFOLIO FOTO'S OP TELEFOON ALTIJD KLEUR
+    */
 
     .portfolio-item img {
-        filter: grayscale(0%) !important;
+        filter:
+            grayscale(0%) !important;
 
-        transform: none !important;
+        transform:
+            none !important;
     }
 
 
-    /* TVR aan het werk mobiel zwart-wit */
+    /*
+    TVR AAN HET WERK OP TELEFOON ZWART-WIT
+    */
 
     .about-image img {
-        filter: grayscale(100%) !important;
+        filter:
+            grayscale(100%) !important;
 
-        transform: none !important;
+        transform:
+            none !important;
     }
 
 
-    /* Geen hover-sprongen op touchscreen */
+    /*
+    Geen hover-beweging touchscreen
+    */
 
     .service-card:hover,
     .portfolio-item:hover,
     .about-image:hover,
     .button:hover,
     .contact-button:hover {
-        transform: none;
+        transform:
+            none;
     }
 }
 
 
+/* =========================================================
+   KLEINE TELEFOONS
+========================================================= */
+
 @media (max-width: 500px) {
+
+    .hero-shutter {
+    width: 230px;
+    height: 230px;
+
+    top: 34%;
+    right: -75px;
+
+    opacity: 0.28;
+}
+
+.shutter-image-wrap {
+    width: 200px;
+    height: 200px;
+}
+
+.shutter-glow {
+    width: 220px;
+    height: 220px;
+}
 
     .navbar nav {
         gap: 18px;
@@ -1726,30 +2060,43 @@ footer {
         font-size: 11px;
     }
 
+
+    .hero {
+        padding:
+            185px
+            7%
+            75px;
+    }
+
+
     .mobile-hero-logo {
-        top: 125px;
+        top: 88px;
 
-        right: 8%;
+        left: 2%;
 
-        width: 70px;
+        width: 115px;
     }
 
     .mobile-hero-logo img {
-        width: 70px;
+        width: 115px;
     }
+
 
     .hero-description {
         font-size: 15px;
     }
 
+
     .showcase-visual {
         min-height: 340px;
     }
+
 
     .tvr-3d-object {
         width: 310px;
         height: 310px;
     }
+
 
     .tvr-orbit {
         width: 230px;
@@ -1766,8 +2113,79 @@ footer {
         height: 80px;
     }
 
+
     .tvr-logo-3d {
         width: 90px;
         height: 90px;
     }
+}
+
+
+/* =========================================================
+   GROTERE DESKTOPS
+========================================================= */
+
+@media (min-width: 1500px) {
+
+    .hero-shutter {
+        right: 9%;
+
+        width: 520px;
+        height: 520px;
+    }
+
+    .shutter-image-wrap {
+        width: 430px;
+        height: 430px;
+    }
+
+    .shutter-glow {
+        width: 460px;
+        height: 460px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cinematic-title span {
+        animation: none !important;
+
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+
+    .hero-shutter-float,
+    .shutter-opening,
+    .shutter-opening::before,
+    .tvr-3d-sphere,
+    .tvr-orbit-1,
+    .tvr-orbit-2,
+    .tvr-orbit-3 {
+        animation: none !important;
+    }
+}
+/* =========================================================
+   DESKTOP NAVIGATIE LOGO - IETS GROTER
+========================================================= */
+
+@media (min-width: 901px) {
+
+    .nav-logo img {
+        width: 80px;
+        height: auto;
+        display: block;
+
+        transform: translateY(3px);
+    }
+
 }
