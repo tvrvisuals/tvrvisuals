@@ -1082,3 +1082,21 @@ if (tvrObject) {
 console.log(
     "TVR Visuals website geladen."
 );
+const shutterVideo = document.querySelector(".shutter-video");
+
+if (shutterVideo) {
+    shutterVideo.muted = true;
+    shutterVideo.playsInline = true;
+
+    const startShutterVideo = () => {
+        shutterVideo.play().catch(() => {
+            // Mobiele browser blokkeert autoplay nog.
+        });
+    };
+
+    startShutterVideo();
+
+    document.addEventListener("touchstart", startShutterVideo, {
+        once: true
+    });
+}

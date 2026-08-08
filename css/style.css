@@ -2090,3 +2090,19 @@ footer {
         height: auto !important;
     }
 }
+.mobile-hero-logo {
+    top: 88px;
+    left: 4%;
+
+    width: 115px;
+
+    transform: translateX(-8px);
+}
+.mobile-hero-logo {
+    top: 88px;
+    left: 4%;
+
+    width: 115px;
+
+    transform: translateX(-6px);
+}
