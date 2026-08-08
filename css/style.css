@@ -933,19 +933,44 @@ footer {
 @media (max-width: 900px) {
 
     .navbar {
-        padding: 0 5%;
-    }
+    padding: 15px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
 
-    .navbar nav {
-        display: none;
-    }
+.navbar .nav-logo {
+    flex-shrink: 0;
+}
 
-    .nav-button {
-        font-size: 11px;
+.navbar .nav-logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
 
-        padding: 10px 15px;
-    }
+.navbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: 100%;
+    order: 3;
+}
 
+.navbar nav a {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.nav-button {
+    font-size: 11px;
+    padding: 9px 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
     .hero {
         padding: 120px 7% 80px;
     }
