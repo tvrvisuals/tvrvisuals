@@ -1107,3 +1107,28 @@ if (shutterVideo) {
 
     shutterVideo.addEventListener("canplay", tryAutoplay, { once: true });
 }
+/* =========================================================
+   OVER MIJ - LEES MEER
+========================================================= */
+
+const aboutReadMore = document.getElementById("aboutReadMore");
+const aboutMore = document.getElementById("aboutMore");
+
+if (aboutReadMore && aboutMore) {
+
+    aboutReadMore.addEventListener("click", () => {
+
+        const isOpen = aboutMore.classList.toggle("open");
+
+        aboutReadMore.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+        aboutReadMore.textContent =
+            isOpen
+                ? "Lees minder ↑"
+                : "Lees meer →";
+    });
+
+}
