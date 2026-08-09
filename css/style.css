@@ -3223,3 +3223,261 @@ footer {
         font-size: 15px;
     }
 }
+/* =========================================================
+   SERVICE CARDS - CAMERA AFBEELDINGEN
+========================================================= */
+
+.service-card {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Camera-container */
+
+.service-camera {
+    position: absolute;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    transition:
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.5s ease,
+        filter 0.5s ease;
+}
+
+
+/* Afbeelding zelf */
+
+.service-camera img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    filter:
+        grayscale(100%)
+        brightness(0.52)
+        contrast(1.08);
+
+    opacity: 0.55;
+
+    transition:
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.5s ease,
+        opacity 0.5s ease;
+}
+
+
+/* =========================================================
+   VIDEOGRAFIE - GROTE CINEMA RIG
+========================================================= */
+
+.service-camera-video {
+    width: 58%;
+
+    right: -4%;
+    top: 8%;
+
+    transform:
+        rotate(-2deg)
+        translateY(0);
+}
+
+
+/* =========================================================
+   FOTOGRAFIE - SONY A7 III
+========================================================= */
+
+.service-camera-photo {
+    width: 46%;
+
+    right: 3%;
+    top: 9%;
+
+    transform:
+        rotate(-2deg)
+        translateY(0);
+}
+
+
+/* =========================================================
+   TEKST BOVEN DE CAMERA HOUDEN
+========================================================= */
+
+.service-number,
+.service-content {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* Oude icoon hoeft niet meer zichtbaar te zijn */
+
+.service-icon {
+    display: none;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.service-card:hover .service-camera-video {
+    transform:
+        rotate(-1deg)
+        translateY(-7px)
+        scale(1.035);
+}
+
+.service-card:hover .service-camera-photo {
+    transform:
+        rotate(-1deg)
+        translateY(-7px)
+        scale(1.035);
+}
+
+.service-card:hover .service-camera img {
+    opacity: 0.78;
+
+    filter:
+        grayscale(55%)
+        brightness(0.68)
+        contrast(1.08);
+}
+
+
+/* =========================================================
+   SUBTIELE DONKERE OVERLAY ACHTER TEKST
+========================================================= */
+
+.service-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 10, 10, 0.96) 0%,
+            rgba(10, 10, 10, 0.82) 37%,
+            rgba(10, 10, 10, 0.22) 70%,
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   MOBIEL
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .service-camera-video {
+        width: 72%;
+
+        right: -15%;
+        top: 8%;
+    }
+
+    .service-camera-photo {
+        width: 58%;
+
+        right: -7%;
+        top: 10%;
+    }
+
+    .service-camera img {
+        opacity: 0.42;
+
+        filter:
+            grayscale(100%)
+            brightness(0.48)
+            contrast(1.08);
+    }
+
+    .service-card:hover .service-camera-video,
+    .service-card:hover .service-camera-photo {
+        transform:
+            rotate(-2deg)
+            translateY(0)
+            scale(1);
+    }
+
+}
+/* =========================================================
+DIENSTEN - CAMERA POSITIE & FORMAAT
+========================================================= */
+
+/* Beide camera-afbeeldingen */
+.service-card-image {
+    object-fit: contain;
+}
+
+
+/* VIDEOGRAFIE - videocamera */
+.service-card:first-child .service-card-image {
+    width: 47%;
+    height: auto;
+
+    right: 8%;
+    top: 8%;
+}
+
+/* =========================================================
+   CAMERA'S KLEINER + POSITIE AANPASSEN
+========================================================= */
+
+
+/* VIDEOGRAFIE - kleiner en verder naar links */
+.service-camera-video {
+    width: 48% !important;
+
+    right: 5% !important;
+    top: 10% !important;
+}
+
+
+/* FOTOGRAFIE - kleiner */
+.service-camera-photo {
+    width: 38% !important;
+
+    right: 5% !important;
+    top: 10% !important;
+}
+/* =========================================================
+   MOBIEL - CAMERA'S IETS LICHTER
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .service-camera-video,
+    .service-camera-photo {
+        filter: brightness(1.65) !important;
+    }
+@media (max-width: 900px) {
+
+    .service-camera-video,
+    .service-camera-photo {
+        filter: brightness(1.65) !important;
+    }
+
+    /* Fotocamera iets naar links */
+    .service-camera-photo {
+        right: 9% !important;
+    }
+
+}
+}
