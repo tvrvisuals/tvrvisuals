@@ -3481,3 +3481,489 @@ DIENSTEN - CAMERA POSITIE & FORMAAT
 
 }
 }
+/* =========================================================
+   NIEUWE DIENSTEN SECTIE
+========================================================= */
+
+.client-services {
+    position: relative;
+
+    padding:
+        150px
+        8%;
+
+    background: #090909;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   BOVENKANT
+========================================================= */
+
+.client-services-heading {
+    max-width: 850px;
+
+    margin-bottom: 80px;
+}
+
+.client-services-heading h2 {
+    margin: 0;
+
+    font-size:
+        clamp(52px, 6vw, 88px);
+
+    line-height: 0.94;
+
+    letter-spacing: -0.055em;
+
+    font-weight: 600;
+}
+
+.client-services-heading h2 span {
+    color:
+        rgba(255, 255, 255, 0.38);
+}
+
+.client-services-intro {
+    max-width: 650px;
+
+    margin-top: 32px;
+
+    color:
+        rgba(255, 255, 255, 0.52);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   DRIE DIENSTEN
+========================================================= */
+
+.client-services-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   DIENST KAART
+========================================================= */
+
+.client-service-card {
+    position: relative;
+
+    min-height: 510px;
+
+    padding: 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #141414,
+            #080808
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.075);
+
+    transition:
+        transform 0.40s ease-in-out,
+        border-color 0.40s ease-in-out,
+        box-shadow 0.40s ease-in-out;
+}
+
+
+/* Subtiele glow */
+
+.client-service-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    right: -170px;
+    top: -170px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.065),
+            transparent 70%
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.6s ease;
+
+    pointer-events: none;
+}
+
+
+/* Hover */
+
+.client-service-card:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(255, 255, 255, 0.17);
+
+    box-shadow:
+        0 22px 65px rgba(0, 0, 0, 0.40),
+        0 0 35px rgba(255, 255, 255, 0.025);
+}
+
+.client-service-card:hover::before {
+    opacity: 1;
+
+    transform:
+        scale(1.15);
+}
+
+
+/* =========================================================
+   NUMMER
+========================================================= */
+
+.client-service-number {
+    position: relative;
+
+    z-index: 2;
+
+    color:
+        rgba(255, 255, 255, 0.25);
+
+    font-size: 11px;
+
+    letter-spacing: 0.15em;
+}
+
+
+/* =========================================================
+   INHOUD
+========================================================= */
+
+.client-service-content {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: auto;
+}
+
+.client-service-label {
+    margin-bottom: 18px;
+
+    color:
+        rgba(255, 255, 255, 0.35);
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.20em;
+}
+
+.client-service-content h3 {
+    margin: 0 0 28px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(30px, 3vw, 42px);
+
+    line-height: 1.02;
+
+    letter-spacing: -0.045em;
+
+    font-weight: 500;
+}
+
+.client-service-content > p:not(.client-service-label) {
+    margin-top: 15px;
+
+    color:
+        rgba(255, 255, 255, 0.48);
+
+    font-size: 13px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   BEKIJK WAT IK AANBIED
+========================================================= */
+
+.client-services-link {
+    display: inline-block;
+
+    margin-top: 55px;
+
+    padding-bottom: 7px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.35);
+
+    color:
+        rgba(255, 255, 255, 0.88);
+
+    font-size: 13px;
+
+    transition:
+        color 0.30s ease,
+        border-color 0.30s ease,
+        transform 0.30s ease;
+}
+
+.client-services-link:hover {
+    color: #ffffff;
+
+    border-color: #ffffff;
+
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================================
+   PORTFOLIO
+========================================================= */
+
+.portfolio-services {
+    background: #050505;
+}
+
+
+/* =========================================================
+   MOBIEL
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .client-services {
+        padding:
+            100px
+            7%;
+    }
+
+    .client-services-heading {
+        margin-bottom: 50px;
+    }
+
+    .client-services-heading h2 {
+        font-size:
+            clamp(
+                48px,
+                13vw,
+                68px
+            );
+    }
+
+    .client-services-intro {
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+
+    /* Drie kaarten onder elkaar */
+
+    .client-services-grid {
+        grid-template-columns:
+            1fr;
+
+        gap: 16px;
+    }
+
+    .client-service-card {
+        min-height: 400px;
+
+        padding: 28px;
+    }
+
+    .client-service-card:hover {
+        transform: none;
+    }
+
+    .client-service-content h3 {
+        font-size: 32px;
+    }
+
+    .client-service-content > p:not(.client-service-label) {
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+    .client-services-link {
+        margin-top: 45px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   KLEINE TELEFOONS
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .client-services {
+        padding:
+            85px
+            6%;
+    }
+
+    .client-service-card {
+        min-height: 380px;
+
+        padding: 25px;
+    }
+
+}
+/* =========================================================
+   DIENSTEN KAARTEN - DEFINITIEVE INDELING
+========================================================= */
+
+/* Nummer altijd linksonder */
+.client-service-number {
+    position: absolute !important;
+
+    left: 32px !important;
+    bottom: 32px !important;
+
+    top: auto !important;
+    right: auto !important;
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 901px) {
+
+    /* Tekst begint waar eerst 01 / 02 / 03 stond */
+    .client-service-content {
+        margin-top: 0 !important;
+        transform: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   TELEFOON / TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    /* Tekst iets verder naar beneden */
+    .client-service-content {
+        margin-top: 45px !important;
+        transform: none !important;
+    }
+
+    /* Nummer linksonder */
+    .client-service-number {
+        left: 24px !important;
+        bottom: 24px !important;
+    }
+
+}
+/* =========================================================
+   DIENSTEN - TITEL + TEKST IETS LAGER
+========================================================= */
+
+.client-service-content h3 {
+    margin-top: 32px !important;
+}
+/* =========================================================
+   DIENSTEN - MOBIEL INHOUD KAARTEN OMHOOG
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .client-service-content {
+        transform: translateY(-35px);
+    }
+
+}
+/* =========================================================
+   DIENSTEN - MOBIEL ALLES OMHOOG
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .client-service-content {
+        margin-top: 15px !important;
+        transform: none !important;
+    }
+
+}
+@media (max-width: 900px) {
+
+    .client-service-content {
+        margin-top: 0 !important;
+        transform: none !important;
+    }
+
+}
+@media (max-width: 900px) {
+
+    /* Kleine tekst: PARTICULIEREN / AUTOBEDRIJVEN / EVENEMENTEN */
+    .client-service-label {
+        transform: translateY(-6px) !important;
+    }
+
+    /* Titel dichter tegen de kleine tekst aan */
+    .client-service-title {
+        margin-top: -40px !important;
+    }
+
+}
+/* =========================================================
+   MOBIEL - TITEL + BESCHRIJVING DICHTER BIJ LABEL
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .client-service-content h3 {
+        margin-top: -10px !important;
+    }
+
+}
+@media (max-width: 900px) {
+
+    .client-service-number {
+        left: auto !important;
+        right: 10px !important;
+        bottom: 10px !important;
+    }
+
+}
