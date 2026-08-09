@@ -3950,5 +3950,51 @@ DIENSTEN - CAMERA POSITIE & FORMAAT
         right: 10px !important;
         bottom: 10px !important;
     }
+}
+/* =========================================================
+   MOBILE — SHUTTER + HERO LOGO VERBERGEN
+========================================================= */
 
+@media (max-width: 768px) {
+
+    .hero-shutter {
+        display: none !important;
+    }
+
+       .mobile-hero-logo {
+        display: none !important;
+    }
+}
+
+.mobile-hero-logo {
+    left: auto !important;
+    right: 72px !important;
+
+    top: auto !important;
+    bottom: -14px !important;
+
+    width: 42px !important;
+    height: auto !important;
+}
+/* MOBIEL — hero inhoud iets omhoog */
+@media (max-width: 768px) {
+    .hero-content {
+        transform: translateY(-18px);
+    }
+}
+@media (max-width: 768px) {
+
+    .hero-content {
+        transform: translateY(-18px);
+    }
+
+    /* Scroll om te ontdekken iets omhoog */
+    .scroll-indicator {
+        transform: translateY(-19px);
+    }
+
+    /* Logo rechtsonder ook iets omhoog */
+    .mobile-hero-logo {
+        transform: translateY(-18px);
+    }
 }
