@@ -73,7 +73,7 @@ const portfolioData = {
 
             {
                 type: "image",
-                src: "assets/images/_DSC5601 (1).JPG",
+                src: "assets/images/Mercedes C43 AMG.JPG",
                 title: "Mercedes C43 AMG Coupe"
             },
 
