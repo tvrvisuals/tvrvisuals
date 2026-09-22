@@ -73,8 +73,8 @@ const portfolioData = {
 
             {
                 type: "image",
-                src: "assets/images/Lamborghini Revuelto.JPG",
-                title: "Lamborghini Revuelto"
+                src: "assets/images/_DSC5601 (1).JPG",
+                title: "Mercedes C43 AMG Coupe"
             },
 
             {
